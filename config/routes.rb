@@ -1,21 +1,34 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # Simple OKR routes
+  #
+  # get         /                 home page
+  # get         /public_url       show OKR
+  # get         /admin_url        show OKR with admin links
+  # get         /new              new OKR (steps 1 and 2)
+  # get         /share/admin_url  new OKR (step 3)
+  # get         /edit/admin_url   edit OKR (steps 1 and 2)
+  # get         /review/admin_url review OKR (steps 1 and 2)
+  #
+  # post        /okrs/id          create OKR (and associated objectives and kr)
+  # patch/put   /okrs/id          update OKR (and associated objectives and kr)
+  # delete      /okrs/id          destroy OKR
+  # delete      /objectives/id    destroy objective (asynchronous)
+  # delete      /key_results/id   destroy kr (asynchronous)  #
+  #
+  # root 'home'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get '/new', to: 'okrs#new', as: 'new_okr'
+  get '/:id', to: 'okrs#show', as: 'show_okr'
+  get '/share/:id', to: 'okrs#share', as: 'share_okr'
+  get '/edit/:id', to: 'okrs#edit', as: 'edit_okr'
+  get '/review/:id', to: 'okrs#review', as: 'review_okr'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  resources :okrs, only: [:create, :update, :destroy]
+  resources :objectives, only: [:destroy]
+  resources :key_results, only: [:destroy]
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
 
-  # Example resource route with options:
-  #   resources :products do
   #     member do
   #       get 'short'
   #       post 'toggle'
