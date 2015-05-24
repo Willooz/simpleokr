@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  score: 1
+  review: MyText
+  references: 
+
+two:
+  description: MyString
+  score: 1
+  review: MyText
+  references: 
