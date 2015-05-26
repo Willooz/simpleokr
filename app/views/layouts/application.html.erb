@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Simpleokr</title>
+  <title>Simple OKR - Objectives Key Results in seconds</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div class="app-header">
+  <h1>Simple OKR</h1>
+  <ul class="unstyle-list">
+    <li><%= link_to "John Doer slides", "#" %></li>
+    <li><%= link_to "Eric Haught video", "#" %></li>
+    <li><%= link_to "other sources", "#" %></li>
+  </ul>
+</div>
 
 <%= yield %>
 

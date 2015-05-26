@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h2>Objectives and Key Results</h2>
+  <h3><%= @okr.owner %> <%= @okr.period %></h3>
+</div>
+
+<div id="okr">
+  <% @objectives.each do |objective| %>
+    <%= render "objective" %>
+  <% end %>
+</div>

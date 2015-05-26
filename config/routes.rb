@@ -16,17 +16,21 @@ Rails.application.routes.draw do
   # delete      /objectives/id    destroy objective (asynchronous)
   # delete      /key_results/id   destroy kr (asynchronous)  #
   #
-  # root 'home'
+  root 'okrs#new'
 
   get '/new', to: 'okrs#new', as: 'new_okr'
-  get '/:id', to: 'okrs#show', as: 'show_okr'
-  get '/share/:id', to: 'okrs#share', as: 'share_okr'
-  get '/edit/:id', to: 'okrs#edit', as: 'edit_okr'
-  get '/review/:id', to: 'okrs#review', as: 'review_okr'
+  get '/:url', to: 'okrs#show', as: 'show_okr'
+  get '/share/:url', to: 'okrs#share', as: 'share_okr'
+  get '/edit/:url', to: 'okrs#edit', as: 'edit_okr'
+  get '/review/:url', to: 'okrs#review', as: 'review_okr'
 
-  resources :okrs, only: [:create, :update, :destroy]
-  resources :objectives, only: [:destroy]
-  resources :key_results, only: [:destroy]
+  resources :okrs, only: [:create, :update, :destroy] do
+    collection do
+      post 'define'
+    end
+  end
+  resources :objectives, only: [:new, :destroy]
+  resources :key_results, only: [:new, :destroy]
 
 
   #     member do
