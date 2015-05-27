@@ -1,10 +1,4 @@
-<div class="kr-form-group" data-o-id="<%= o.id %>" data-kr-id="<%= kr.id %>">
-    <%= kr_form.label :description, "Key Result:" %>
-    <%= kr_form.text_field :description %>
-    <%= link_to "Add KR", add_kr_path(okr, o, kr) %>
-    <% if o.key_results.count > 1 %>
-      <%= link_to "Delete KR", delete_kr_path(okr, o, kr)  %>
-    <% end %>
-  <% end %>
-
+<div class="kr-form-group">
+  <label>Key Result: </label>
+  <%= form.text_field :description %>
 </div>

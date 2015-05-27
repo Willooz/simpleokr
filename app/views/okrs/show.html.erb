@@ -4,7 +4,17 @@
 </div>
 
 <div id="okr">
-  <% @objectives.each do |objective| %>
-    <%= render "objective" %>
+  <ul>
+  <% @okr.objectives.each do |ob| %>
+    <li><%= ob.description %></li>
+    <li>
+      <ul>
+      <% ob.key_results.each do |kr| %>
+        <li><%= kr.description %></li>
+      <% end %>
+      </ul>
+    </li>
   <% end %>
+  </ul>
+
 </div>

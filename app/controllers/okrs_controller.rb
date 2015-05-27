@@ -1,48 +1,29 @@
 class OkrsController < ApplicationController
-  before_action :find_by_url, only: [:show, :add_o, :edit]
+  before_action :find_by_url, only: [:show, :edit]
 
   def show
-    @objectives = @okr.objectives
   end
 
   def new
     @okr = Okr.new
-    2.times do
-      @objective = @okr.objectives.build
-      2.times { @kr = @objective.key_results.build }
+    @objective = @okr.objectives.build
+    @kr = @objective.key_results.build
+  end
+
+  def renew
+    # Rebuild the entire nested data tree with current param values
+    # @okr = Okr.new(okr_params)
+    # @objectives
+    # @key_results
+    respond_to do |format|
+      format.html { render 'new' }
     end
   end
 
-  # def add_o
-  #   @okr = Okr.new(okr_params)
-  #   params[:okr][:objectives_attributes].size.times do
-
-  #     objective = Objective.new
-  #     objective.each do |kr|
-  #       key_result = objective.key_results.build(kr)
-  #     end
-  #   end
-  # end
-
-  # def delete_o
-  # end
-
-  # def add_kr
-  # end
-
-  # def delete_o
-  # end
-
-  # def define
-  #   @okr = Okr.new(okr_params)
-  #   @objective = @okr.objectives.build
-  #   @key_result = @objective.key_results.build
-  # end
-
   def create
     @okr = Okr.new(okr_params)
-    @okr.public_url = "11"
-    @okr.admin_url = "22"
+    @okr.public_url = SecureRandom.hex(10)
+    @okr.admin_url = SecureRandom.hex(16)
     if @okr.save
       okr_params[:objectives_attributes].each do |o|
         @objective = @okr.objectives.create(o[1])
@@ -50,7 +31,7 @@ class OkrsController < ApplicationController
           @key_result = @objective.key_results.create(kr[1])
         end
       end
-      redirect_to root_path
+      redirect_to show_okr_path(@okr.public_url), notice: "OKR successfully created"
     else
       render 'new'
     end
@@ -77,7 +58,7 @@ class OkrsController < ApplicationController
   end
 
   def find_by_url
-    if params[:url].length < 10
+    if params[:url].length < 21
       @okr = Okr.find_by public_url: params[:url]
     else
       @okr = Okr.find_by admin_url: params[:url]

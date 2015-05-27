@@ -1,14 +1,9 @@
-<div class="o-form-group" data-o-id="<%= o.id %>" data-kr-count="<%= o.key_results.count %>">
-
-    <%= o_form.label :description, "Objective:" %>
-    <%= o_form.text_field :description %>
-    <%= link_to "Add O", new_key_result_path %>
-    <%= link_to "Delete O", "#" %><br />
-
-    <%= o_form.fields_for :key_results do |kr_form| %>
-      <%= render partial 'kr_form' %>
-    <% end %>
-
+<div class="o-form-group" data-o-id="0" data-kr-count="0">
+  <label>Objective: </label>
+  <%= form.text_field :description %>
+  <%= form.fields_for :key_results do |kr_form| %>
+    <%= render partial: "kr_form", locals: { form: kr_form } %>
   <% end %>
-
+  <%= link_to "Add KR", "#", class: "add-kr-btn" %>
+  <%= link_to "Remove KR", "#", class: "remove-kr-btn" %>
 </div>

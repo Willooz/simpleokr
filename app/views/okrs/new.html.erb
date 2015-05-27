@@ -9,43 +9,46 @@
 
 <div id="scope-okr">
   <h3>Define the scope of your objectives</h3>
-  <%= form_for @okr, html: { class: "" } do |okr_form| %>
-    <p><%= @okr.errors.full_messages.first if @okr.errors.any? %></p>
-    <%= okr_form.label :owner, "Team:" %>
-    <%= okr_form.text_field :owner %><br />
-    <%= okr_form.label :period, "Period:" %>
-    <%= okr_form.date_select :period %><br />
-    <%= okr_form.label :admin_name, "Your name:" %>
-    <%= okr_form.text_field :admin_name %><br />
-    <%= okr_form.label :admin_email, "Your e-mail:" %>
-    <%= okr_form.text_field :admin_email %><br />
-    <%= link_to "Cancel", root_path %>
-    <%= okr_form.submit "Next" %>
+  <%= form_for @okr, html: { class: "" } do |form| %>
 
-  <% end %>
+    <p><%= @okr.errors.full_messages.first if @okr.errors.any? %></p>
+    <%= form.label :owner, "Team:" %>
+    <%= form.text_field :owner %><br />
+    <%= form.label :period, "Period:" %>
+    <%= form.date_select :period %><br />
+    <%= form.label :admin_name, "Your name:" %>
+    <%= form.text_field :admin_name %><br />
+    <%= form.label :admin_email, "Your e-mail:" %>
+    <%= form.text_field :admin_email %><br />
+    <%= link_to "Cancel", root_path %>
+    <%= link_to "Next", "#" %>
+
 </div>
 
-<div id="define-okr" data-o-count="<%= @okr.objectives.count %>">
+<div id="define-okr">
   <h3>Write your Objectives and associated Key Results</h3>
-  <%= form_for @okr, html: { class: "" } do |okr_form| %>
-    <p><%= @okr.errors.full_messages.first if @okr.errors.any? %></p>
-    <%= okr_form.fields_for :objectives do |o_form| %>
-        <%= render partial 'o_form' %>
-    <% end %>
 
+    <div class="okr-form-group" data-o-count="0">
+      <%= form.fields_for :objectives do |o_form| %>
+        <%= render partial: "o_form", locals: { form: o_form } %>
+      <% end %>
+      <%= link_to "Add O", "#", class: "add-o-btn" %>
+      <%= link_to "Remove O", "#", class: "remove-o-btn" %>
+    </div>
+    <br>
+    <br>
     <%= link_to "Back", "#" %>
-    <%= okr_form.submit "Create OKR" %>
-
+    <%= form.submit "Create OKR" %><br />
   <% end %>
 </div>
 
 <div id="share-okr">
   <h3>Share your OKR with stakeholders who gain from knowing your work plan</h3>
-  <%= form_for @okr, html: { class: "" } do |okr_form| %>
-    <%= okr_form.label :public_url, "Public URL:" %>
-    <%= okr_form.text_field :public_url %><br />
-    <%= okr_form.label :admin_url, "Admin URL:" %>
-    <%= okr_form.text_field :admin_url %><br />
+  <%= form_for @okr, html: { class: "" } do |form| %>
+    <%= form.label :public_url, "Public URL:" %>
+    <%= form.text_field :public_url %><br />
+    <%= form.label :admin_url, "Admin URL:" %>
+    <%= form.text_field :admin_url %><br />
 
     <%= link_to "View OKR" %>
 
