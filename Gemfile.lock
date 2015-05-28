@@ -202,7 +202,7 @@ DEPENDENCIES
   annotate
   better_errors
   binding_of_caller
-  bootstrap-sass
+  bootstrap-sass (~> 3.3.4)
   coffee-rails (~> 4.1.0)
   country_select
   figaro

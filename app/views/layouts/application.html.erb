@@ -5,21 +5,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+    <!-- Add these line for detecting device width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 </head>
 <body>
 
-<div class="app-header">
-  <h1>Simple OKR</h1>
-  <ul class="unstyle-list">
-    <li><%= link_to "John Doer slides", "#" %></li>
-    <li><%= link_to "Eric Haught video", "#" %></li>
-    <li><%= link_to "other sources", "#" %></li>
-  </ul>
+<div class="page-wrapper">
+  <%= render "shared/header" %>
+  <%= render "shared/flashes" %>
+  <%= yield %>
+  <%= render "shared/footer" %>
 </div>
-
-<%= render "shared/flashes" %>
-
-<%= yield %>
 
 </body>
 </html>

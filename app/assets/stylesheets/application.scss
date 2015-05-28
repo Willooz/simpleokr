@@ -1,0 +1,14 @@
+// Graphical variables
+@import "config/variables";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "selectpicker.css";
+
+// Your CSS
+@import "components/layout";
+@import "components/header";
+@import "components/forms";

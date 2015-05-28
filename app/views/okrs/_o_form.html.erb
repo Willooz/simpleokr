@@ -1,9 +1,20 @@
-<div class="o-form-group" data-o-id="0" data-kr-count="0">
-  <label>Objective: </label>
-  <%= form.text_field :description %>
+<div class="o-form-group form-block" data-o-id="0" data-kr-count="0">
+  <div class="form-group">
+    <%= form.label :description, "Objective:", class: "col-sm-2 control-label" %>
+    <div class="col-sm-8">
+      <%= form.text_field :description, class: "form-control input-sm" %>
+    </div>
+    <div class="col-sm-2">
+      <i class="fa fa-question-circle"></i>
+    </div>
+  </div>
   <%= form.fields_for :key_results do |kr_form| %>
     <%= render partial: "kr_form", locals: { form: kr_form } %>
   <% end %>
-  <%= link_to "Add KR", "#", class: "add-kr-btn" %>
-  <%= link_to "Remove KR", "#", class: "remove-kr-btn" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= link_to "Add KR", "#", class: "add-kr-btn btn btn-default btn-xs" %>
+      <%= link_to "Remove KR", "#", class: "remove-kr-btn btn btn-default btn-xs" %>
+    </div>
+  </div>
 </div>

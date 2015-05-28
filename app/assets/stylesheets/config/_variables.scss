@@ -1,0 +1,74 @@
+// ---------------------------
+// Font scheme
+// ---------------------------
+
+// Primary fonts
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: font_url('ProximaNova-Light.otf') format('opentype');
+  font-weight: light;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova';
+  src: font_url('ProximaNova-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova';
+  src: font_url('ProximaNova-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+$font-family: "Proxima Nova", "sans-serif";
+
+// ---------------------------
+// Color scheme
+// ---------------------------
+
+// Primary colors
+$light-blue: #DEEDFF;
+$blue:       #6FA1DD;
+$dark-blue:  #003068;
+$red:        #D0021B;
+$yellow:     #F8E71C;
+$green:      #7ED321;
+
+// Gray scale
+$white:      white;
+$white-gray: #F0F0F0;
+$light-gray: #DCDCDC;
+$gray:       #9B9B9B;
+$dark-gray:  #4A4A4A;
+
+// ---------------------------
+// Text
+// ---------------------------
+
+$letter-spacing: 1px;
+$header-font-size: 24px;   // App title (h1) and Page title (h2)
+$title-font-size: 18px;    // Page navigation (h3)
+$text-font-size: 14px;     // Block titles, text, links, form labels (p)
+
+// ---------------------------
+// Buttons
+// ---------------------------
+
+// Generic
+$btn-color: $dark-blue;
+// Hover and Down
+
+
+// ---------------------------
+// Forms
+// ---------------------------
+
+
+// ---------------------------
+// Boxes
+// ---------------------------
+
+$box-corner-radius: 4px;

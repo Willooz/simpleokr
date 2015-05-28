@@ -1,4 +1,9 @@
-<div class="kr-form-group">
-  <label>Key Result: </label>
-  <%= form.text_field :description %>
+<div class="kr-form-group form-group">
+  <%= form.label :description, "Key Result:", class: "col-sm-2 control-label" %>
+  <div class="col-sm-8">
+    <%= form.text_field :description, class: "form-control input-sm" %>
+  </div>
+  <div class="col-sm-2">
+    <i class="fa fa-question-circle"></i>
+  </div>
 </div>
