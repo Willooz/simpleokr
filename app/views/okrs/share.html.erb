@@ -1,0 +1,12 @@
+<div id="share-okr" class="page-block">
+  <h3>Share your OKR with stakeholders who gain from knowing your work plan</h3>
+  <%= form_for @okr, html: { class: "" } do |form| %>
+    <%= form.label :public_url, "Public URL:" %>
+    <%= form.text_field :public_url %><br />
+    <%= form.label :admin_url, "Admin URL:" %>
+    <%= form.text_field :admin_url %><br />
+
+    <%= link_to "View OKR" %>
+
+  <% end %>
+</div>

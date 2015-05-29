@@ -6,34 +6,56 @@ class OkrsController < ApplicationController
 
   def new
     @okr = Okr.new
-    @objective = @okr.objectives.build
-    @kr = @objective.key_results.build
   end
 
-  def renew
-    # Rebuild the entire nested data tree with current param values
-    # @okr = Okr.new(okr_params)
-    # @objectives
-    # @key_results
-    respond_to do |format|
-      format.html { render 'new' }
+  def define
+    @okr = Okr.new(okr_params)
+    if @okr.valid?
+      objective = @okr.objectives.build(description: " ")
+      objective.key_results.build(description: " ")
+      render 'define'
+    else
+      render 'new'
     end
   end
 
   def create
+    # Generate models from params
     @okr = Okr.new(okr_params)
-    @okr.public_url = SecureRandom.hex(10)
-    @okr.admin_url = SecureRandom.hex(16)
-    if @okr.save
-      okr_params[:objectives_attributes].each do |o|
-        @objective = @okr.objectives.create(o[1])
-        o[1][:key_results_attributes].each do |kr|
-          @key_result = @objective.key_results.create(kr[1])
-        end
+    # IF add/remove buttons...
+    if params[:button]
+      case params[:button][/\D*/]
+        when "add_o"
+          objective = @okr.objectives.build(description: " ")
+          objective.key_results.build(description: " ")
+          render 'define'
+        when "remove_o"
+          objective_to_remove = @okr.objectives.last
+          @okr.objectives.delete(objective_to_remove)
+          render 'define'
+        when "add_kr_"
+          index = params[:button][/\d*$/].to_i + 1
+          objective_to_change = @okr.objectives.find(index)
+          raise
+          # objective_to_change = @okr.objectives.last
+          render 'define'
+        when "remove_kr_"
+        else
       end
-      redirect_to show_okr_path(@okr.public_url), notice: "OKR successfully created"
+    # IF create button, proceed to savind...
     else
-      render 'new'
+      if @okr.valid?
+        @okr.public_url = SecureRandom.hex(10)
+        @okr.admin_url = SecureRandom.hex(16)
+        @okr.save
+        @okr.objectives.each do |o|
+          o.key_results.save
+          o.save
+        end
+        edirect_to share_okr_path, notice: "OKR successfully created"
+      else
+        render 'define'
+      end
     end
   end
 

@@ -18,17 +18,14 @@ Rails.application.routes.draw do
   #
   root 'okrs#new'
 
-  get '/new', to: 'okrs#new', as: 'new_okr'
+  # get '/new', to: 'okrs#new', as: 'new_okr'
   get '/:url', to: 'okrs#show', as: 'show_okr'
   get '/share/:url', to: 'okrs#share', as: 'share_okr'
   get '/edit/:url', to: 'okrs#edit', as: 'edit_okr'
   get '/review/:url', to: 'okrs#review', as: 'review_okr'
 
-  resources :okrs, only: [:create, :update, :destroy] do
-    collection do
-      post 'define'
-    end
-  end
+  resources :okrs, only: [:new, :create, :update, :destroy]
+  post '/define', to: 'okrs#define', as: 'define_okr'
   resources :objectives, only: [:new, :destroy]
   resources :key_results, only: [:new, :destroy]
 

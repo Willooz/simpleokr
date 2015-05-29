@@ -1,20 +1,24 @@
-<div class="o-form-group form-block" data-o-id="0" data-kr-count="0">
+<div class="o-form-group form-block">
   <div class="form-group">
     <%= form.label :description, "Objective:", class: "col-sm-2 control-label" %>
     <div class="col-sm-8">
       <%= form.text_field :description, class: "form-control input-sm" %>
     </div>
-    <div class="col-sm-2">
-      <i class="fa fa-question-circle"></i>
-    </div>
+    <%= render 'helper' %>
   </div>
   <%= form.fields_for :key_results do |kr_form| %>
     <%= render partial: "kr_form", locals: { form: kr_form } %>
   <% end %>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= link_to "Add KR", "#", class: "add-kr-btn btn btn-default btn-xs" %>
-      <%= link_to "Remove KR", "#", class: "remove-kr-btn btn btn-default btn-xs" %>
+      <%= button_tag(value: "add_kr_#{index}", data: { objective: objective.id }, class: "btn btn-default btn-xs") do %>
+        <i class="fa fa-plus-circle"></i> add key result
+      <% end %>
+      <% if objective.key_results.size > 1 %>
+        <%= button_tag(value: "remove_kr_#{index}", data: { objective: index }, class: "btn btn-default btn-xs") do %>
+          <i class="fa fa-trash"></i> remove key result
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -81,11 +81,3 @@ $(document).ready(function() {
 //   { "description": "2nd Objective", "keyResults": [ "description": "first kr" ] },
 //   { "description": "2nd Objective", "keyResults": [ "description": "first kr" ] }
 // ]
-
-// function addObjective = function(value)
-
-// function removeObjective()
-
-// function addKeyResult(index, value)
-
-// function removeKeyResult(index, value)
