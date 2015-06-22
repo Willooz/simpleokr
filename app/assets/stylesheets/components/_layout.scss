@@ -30,11 +30,12 @@ a:link, a:active, a:visited, a:hover, a:focus {
 }
 
 .page-wrapper {
-  width: 900px;
   margin: 0 auto;
+  width: 900px;
+  min-height: 100%;
 }
 
-.page-block {
+.page-section {
   margin: 0px;
   padding: 20px;
 }

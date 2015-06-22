@@ -1,4 +1,4 @@
-.page-head {
+header {
   height: 80px;
   margin: 0px;
   padding: 10px 20px;
@@ -6,4 +6,12 @@
   h3 {
     color: $gray;
   }
+}
+
+footer {
+  position: absolute;
+  height: 120px;
+  width: 900px;
+  padding: 10px 20px;
+  border-top: 1px solid $white-gray;
 }

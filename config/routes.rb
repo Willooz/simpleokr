@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # delete      /objectives/id    destroy objective (asynchronous)
   # delete      /key_results/id   destroy kr (asynchronous)  #
   #
-  root 'okrs#new'
+  root 'pages#home'
 
   # get '/new', to: 'okrs#new', as: 'new_okr'
   get '/:url', to: 'okrs#show', as: 'show_okr'

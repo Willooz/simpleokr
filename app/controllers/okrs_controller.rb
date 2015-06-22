@@ -15,7 +15,7 @@ class OkrsController < ApplicationController
       objective.key_results.build()
       render 'define'
     else
-      render 'new'
+      render 'new', alert: "Oops! Verify the fields highlighted below."
     end
   end
 
