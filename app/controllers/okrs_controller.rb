@@ -1,5 +1,5 @@
 class OkrsController < ApplicationController
-  before_action :find_by_url, only: [:show, :edit]
+  before_action :find_by_url, only: [:show, :share, :edit]
 
   def show
   end
@@ -11,8 +11,8 @@ class OkrsController < ApplicationController
   def define
     @okr = Okr.new(okr_params)
     if @okr.valid?
-      objective = @okr.objectives.build(description: " ")
-      objective.key_results.build(description: " ")
+      objective = @okr.objectives.build()
+      objective.key_results.build()
       render 'define'
     else
       render 'new'
@@ -20,26 +20,30 @@ class OkrsController < ApplicationController
   end
 
   def create
-    # Generate models from params
+    # Generate okr, objectives and kr models from params
     @okr = Okr.new(okr_params)
-    # IF add/remove buttons...
+    # IF post request from add/remove buttons...
     if params[:button]
       case params[:button][/\D*/]
         when "add_o"
-          objective = @okr.objectives.build(description: " ")
-          objective.key_results.build(description: " ")
+          objective = @okr.objectives.build()
+          objective.key_results.build()
           render 'define'
         when "remove_o"
           objective_to_remove = @okr.objectives.last
           @okr.objectives.delete(objective_to_remove)
           render 'define'
         when "add_kr_"
-          index = params[:button][/\d*$/].to_i + 1
-          objective_to_change = @okr.objectives.find(index)
-          raise
-          # objective_to_change = @okr.objectives.last
+          index = params[:button][/\d*$/].to_i
+          objective_to_change = @okr.objectives[index]
+          objective_to_change.key_results.build()
           render 'define'
         when "remove_kr_"
+          index = params[:button][/\d*$/].to_i
+          objective_to_change = @okr.objectives[index]
+          kr_to_remove = objective_to_change.key_results.last
+          objective_to_change.key_results.delete(kr_to_remove)
+          render 'define'
         else
       end
     # IF create button, proceed to savind...
@@ -49,14 +53,19 @@ class OkrsController < ApplicationController
         @okr.admin_url = SecureRandom.hex(16)
         @okr.save
         @okr.objectives.each do |o|
-          o.key_results.save
+          o.key_results.each do |kr|
+            kr.save
+          end
           o.save
         end
-        edirect_to share_okr_path, notice: "OKR successfully created"
+        redirect_to share_okr_path(@okr.admin_url), notice: "OKR successfully created"
       else
-        render 'define'
+        render 'define', alert: "OKR format invalid. Check highlighted fields."
       end
     end
+  end
+
+  def share
   end
 
   def edit
