@@ -8,6 +8,24 @@ body {
   background: white;
 }
 
+header {
+  height: 80px;
+  margin: 0px;
+  padding: 10px 20px;
+  border-bottom: 1px solid $white-gray;
+  h3 {
+    color: $gray;
+  }
+}
+
+footer {
+  position: absolute;
+  height: 120px;
+  width: 900px;
+  padding: 10px 20px;
+  border-top: 1px solid $white-gray;
+}
+
 h1, h2 {
   font-size: $header-font-size;
   margin: 0px;
@@ -54,4 +72,8 @@ a:link, a:active, a:visited, a:hover, a:focus {
 
 .float-right {
   float: right;
+}
+
+.text-center {
+  text-align: center;
 }
