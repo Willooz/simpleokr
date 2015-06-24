@@ -7,19 +7,19 @@
 @font-face {
   font-family: 'Proxima Nova';
   src: font_url('ProximaNova-Light.otf') format('opentype');
-  font-weight: light;
+  font-weight: 200;
   font-style: normal;
 }
 @font-face {
   font-family: 'Proxima Nova';
   src: font_url('ProximaNova-Regular.otf') format('opentype');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Proxima Nova';
   src: font_url('ProximaNova-Bold.otf') format('opentype');
-  font-weight: bold;
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -31,11 +31,13 @@ $font-family: "Proxima Nova", "sans-serif";
 
 // Primary colors
 $light-blue: #DEEDFF;
-$blue:       #6FA1DD;
+$blue:       #3498db;
 $dark-blue:  #003068;
-$red:        #D0021B;
-$yellow:     #F8E71C;
-$green:      #7ED321;
+$midnight-blue: #2c3e50;
+
+$red:        #e74c3c;
+$yellow:     #f1c40f;
+$green:      #2ecc71;
 
 // Gray scale
 $white:      white;
@@ -48,10 +50,11 @@ $dark-gray:  #4A4A4A;
 // Text
 // ---------------------------
 
-$letter-spacing: 1px;
+$letter-spacing: 0.8px;
 $header-font-size: 24px;   // App title (h1) and Page title (h2)
 $title-font-size: 18px;    // Page navigation (h3)
 $text-font-size: 14px;     // Block titles, text, links, form labels (p)
+$line-height: 1.4em;
 
 // ---------------------------
 // Buttons

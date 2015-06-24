@@ -8,6 +8,34 @@
 // Semantic color scheme
 
 // Default Buttons
+.btn {
+  border-radius: 9999em;
+}
+
+.btn-lg {
+  margin: 0px 5px;
+  padding: 10px 20px;
+}
+
+.btn-default {
+  color: $gray;
+  border-color: $gray;
+}
+
+.btn-default:hover {
+  color: darken($gray, 20%);
+  border-color: darken($gray, 20%);
+  background-color: white;
+}
+
+.btn-primary {
+  background-color: $blue;
+  border-color: darken($blue, 10%);
+}
+
+.btn-primary:hover {
+  background-color: darken($blue, 10%);
+}
 
 // General radius (for buttons, inputs, popover...)
 

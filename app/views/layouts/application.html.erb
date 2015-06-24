@@ -11,12 +11,13 @@
 </head>
 <body>
 
+<%= render "shared/header" %>
+
 <div class="page-wrapper">
-  <%= render "shared/header" %>
   <%= render "shared/flashes" %>
   <%= yield %>
-  <%= render "shared/footer" %>
 </div>
+<%= render "shared/footer" %>
 
 </body>
 </html>

@@ -1,8 +1,82 @@
 <footer>
-  <div>
-    Social Media
+  <div class="footer container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <h4>About</h4>
+        <p>Inquire at <%= link_to "contact(at)simpleokr.com", "mailto:contact@simpleokr.com" %></p>
+        <ul>
+          <li>Made with <i class="fa fa-heart red"></i> and <i class="fa fa-diamond red"></i> by Willem Browne.</li>
+          <li>New York City. 2015.</li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <h4>Support</h4>
+        <p>Get help at <%= link_to "help(at)simpleokr.com", "mailto:help@simpleokr.com" %></p>
+        <ul>
+          <li>
+            <button type="button" class="btn btn-xs btn-default " data-toggle="modal" data-target="#feedbackModal">
+              Provide feedback and donate here.
+            </button>
+          </li>
+          <li>SIMPLEOKR is a non-commercial project. Your support will be used to fix bugs and implement features you would like to see.</li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <h4>Share</h4>
+        <p>Spread the word on social media.</p>
+        <ul class="list-inline">
+          <li><i class="fa fa-twitter blue"></i></li>
+          <li><i class="fa fa-linkedin blue"></i></li>
+          <li><i class="fa fa-envelope-o blue"></i></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div>
-    About
+
+  <!-- Feedback Modal -->
+  <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Help improve SIMPLEOKR</h4>
+        </div>
+        <div class="modal-body">
+          <h4>Provide feedback</h4>
+          <p>Tell me what you like or dislike. What you think is missing. Please do!</p>
+
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">From:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="control-label">Feedback:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit feedback</button>
+          </form>
+
+        </div>
+          <div class="modal-body">
+          <h4>Donate</h4>
+          <p>If you appreciate using SIMPLEOKR and would like to encourage me to improve it, feel free to donate the sum of your choice. SIMPLEOKR is a non-commercial side project. It will always be free to use. <br>Willem Browne.</p>
+
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">Amount (in USD):</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <button type="submit" class="btn btn-primary">Donate via Venmo</button>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+<!--           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
   </div>
+
 </footer>
