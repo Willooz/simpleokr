@@ -1,77 +1,114 @@
-<section id="tagline" class="text-center">
-  <h1>Manage your goals in seconds!</h1>
-  <h2>Using OKR, the performance method popularized by Google.</h2>
-  <div class="call-to-action">
-    <div class="free-text">FREE</div>
-    <div class="free-arrow"></div>
-    <%= link_to "Learn more", "#definition", class: "btn btn-lg btn-default" %>
-    <%= link_to "Start now", new_okr_path, class: "btn btn-lg btn-primary" %>
-  </div>
-</section>
-
-<section id="process" class="container-fluid text-center">
-  <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <%= image_tag "http://placehold.it/50x50", class: "img-circle" %><br>
-      <h3>Define</h3>
-      <%= image_tag "http://placehold.it/220x180", class: "icon" %>
-      <p>Use Objectives - Key Results to define specific and measurable goals for the coming quarter.</p>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <%= image_tag "http://placehold.it/50x50", class: "img-circle" %><br>
-      <h3>Share</h3>
-      <%= image_tag "http://placehold.it/220x180", class: "icon" %>
-      <p>Share your goals via email or social media with people interested in what you're up to.</p>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <%= image_tag "http://placehold.it/50x50", class: "img-circle" %><br>
-      <h3>Review</h3>
-      <%= image_tag "http://placehold.it/220x180", class: "icon" %>
-      <p>Review your results versus goals at the end of the quarter. Objectively decide how to proceed with your projects.</p>
+<section id="tagline">
+  <div class="container-fluid">
+    <h1>Manage your goals in seconds!</h1>
+    <h2>Using OKR, the performance method popularized by Google.</h2>
+    <div class="call-to-action">
+      <div class="free-text">FREE</div>
+      <div class="free-arrow"><%= image_tag "arrow.svg", size: "50x30" %></div>
+      <%= link_to "Learn more", "#definition", class: "btn btn-lg btn-default" %>
+      <%= link_to "Start now", new_okr_path, class: "btn btn-lg btn-primary" %>
     </div>
   </div>
 </section>
 
-<section id="definition" class="container-fluid text-center">
-    <h3 class="heavy">What's OKR ?</h3>
-    <p class="wide-text">Objectives - Key Results is a method for managing objectives and performance on a quarterly basis. It started at Intel, was presented by <%= link_to "John Doerr", "http://www.kpcb.com/partner/john-doerr" %> to Google's founders and subsequently became popular in the tech industry. Learn more from <%= link_to "Rick Klau's", "https://www.gv.com/team/rick-klau" %> presentation at Google Ventures.</p>
-    <div class="icon">
-      <iframe width="480" height="270" src="https://www.youtube.com/embed/mJB83EZtAjc" frameborder="0" allowfullscreen></iframe>
+<section id="process">
+  <div class="container-fluid">
+    <div class="row">
+      <h2>HOW DOES IT WORK?</h2>
     </div>
-    <p class="wide-text">SIMPLE<b>OKR</b> is a free and straightfoward web app to use OKR without the hassle of building, sharing and maintaining spreadsheets. Learn more about SIMPLE<b>OKR</b>'s author. For company-wide OKR implementations, consider solutions such as <%= link_to "BetterWorks", "http://www.betterworks.com/" %> or <%= link_to "Weekdone", "https://weekdone.com/" %></p>
-</section>
-
-<section id="benefits" class="container-fluid text-center">
-  <div class="row">
-    <h3 class="heavy">What's so great about OKR ?</h3>
-    <div class="col-xs-12 col-md-3">
-      <%= image_tag "http://placehold.it/100x100", class: "img-circle icon" %>
-      <h4>Clarity</h4>
-      <p>Know what you will (and will not) work on. Focus energy and resources on what matters.</p>
-    </div>
-    <div class="col-xs-12 col-md-3">
-      <%= image_tag "http://placehold.it/100x100", class: "img-circle icon" %>
-      <h4>Transparency</h4>
-      <p>Share. Inform all necessary stakeholders to avoid confusion. Take ownership publicly.</p>
-    </div>
-    <div class="col-xs-12 col-md-3">
-      <%= image_tag "http://placehold.it/100x100", class: "img-circle icon" %>
-      <h4>Objectivity</h4>
-      <p>Choose relevant and undisputable metrics. Avoid interpretations of goals and results.</p>
-    </div>
-    <div class="col-xs-12 col-md-3">
-      <%= image_tag "http://placehold.it/100x100", class: "img-circle icon" %>
-      <h4>Learning</h4>
-      <p>Review on a regular basis. Learn. Make better decisions to move forward with your projects.</p>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <%= image_tag "one.svg", size: "50" %><br><br>
+        <%= image_tag "define.png", width: "200" %>
+        <h3>Define</h3>
+        <p>Use Objectives - Key Results to define clear and measurable goals for the coming quarter.</p>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= image_tag "two.svg", size: "50" %><br><br>
+        <%= image_tag "share.png", width: "200" %>
+        <h3>Share</h3>
+        <p>Share your goals via email or social media with people interested in your work.</p>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= image_tag "three.svg", size: "50" %><br><br>
+        <%= image_tag "review.png", width: "200" %>
+        <h3>Review</h3>
+        <p>Assess quarterly work results againts your goals. Learn from successes and failures alike!</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="final-call" class="container-fluid text-center">
-  <div class="row">
-    <h3>Set your first objectives with SIMPLE<b>OKR</b>. It's free. <%= link_to "Let's go!", new_okr_path, class: "btn btn-lg btn-primary" %></h3>
-<!--     <div class="call-to-action">
+<section id="definition">
+  <div class="container-fluid">
+    <div class="row">
+      <h2 class="heavy">WHAT'S OKR?</h2>
+    </div>
+    <div class="row">
+      <p class="wide-text">Objectives - Key Results is a method for managing objectives and performance on a quarterly basis. It started at Intel, was presented by <%= link_to "John Doerr", "http://www.kpcb.com/partner/john-doerr" %> to Google's founders and subsequently became popular in the tech industry. Learn more about OKRs from <%= link_to "Rick Klau's", "https://www.gv.com/team/rick-klau" %> presentation at Google Ventures.</p>
+      <br>
+      <div>
+        <iframe width="480" height="270" src="https://www.youtube.com/embed/mJB83EZtAjc" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <br>
+      <p class="wide-text">SIMPLE<b>OKR</b> is a free and straightfoward web app to use OKR without the hassle of building, sharing and maintaining spreadsheets. Learn more about SIMPLE<b>OKR</b>'s author. For company-wide OKR implementations, consider solutions such as <%= link_to "BetterWorks", "http://www.betterworks.com/" %> or <%= link_to "Weekdone", "https://weekdone.com/" %></p>
+    </div>
+  </div>
+</section>
 
-    </div> -->
+<section id="benefits">
+  <div class="container-fluid text-center">
+    <div class="row">
+      <h2>GREAT THINGS ABOUT OKR!</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="icon">
+          <%= image_tag "clarity.svg" %>
+        </div>
+        <div class="benefit">
+          <h4>Clarity</h4>
+          <p>Know what you will (and will not) work on. Focus energy and resources on what matters.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="icon">
+          <%= image_tag "clarity.svg" %>
+        </div>
+        <div class="benefit">
+          <h4>Transparency</h4>
+          <p>Share. Inform all necessary stakeholders to avoid confusion. Take ownership publicly.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="icon">
+          <%= image_tag "clarity.svg" %>
+        </div>
+        <div class="benefit">
+          <h4>Objectivity</h4>
+          <p>Choose relevant and undisputable metrics. Avoid interpretations of goals and results.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="icon">
+          <%= image_tag "clarity.svg" %>
+        </div>
+        <div class="benefit">
+          <h4>Learning</h4>
+          <p>Review on a regular basis. Learn. Make better decisions to move forward with your projects.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="final-call">
+  <div class="container-fluid text-center">
+    <div class="row">
+      <h2>Set your first objectives with <span class="normal">SIMPLE</span>OKR. <%= link_to "Let's go!", new_okr_path, class: "btn btn-lg btn-primary" %></h2>
+  <!--     <div class="call-to-action">
+
+      </div> -->
+    </div>
   </div>
 </section>
