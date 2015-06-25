@@ -17,15 +17,17 @@ gem 'simple_form'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'zeroclipboard-rails', '~> 0.1.0'
 
 group :development, :test do
   gem "annotate"
   gem "binding_of_caller"
   gem "better_errors"
+  gem "faker"
   gem "letter_opener"
-  gem "quiet_assets"
   gem "pry-byebug"
   gem "pry-rails"
+  gem "quiet_assets"
   gem 'spring'
 end
 

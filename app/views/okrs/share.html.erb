@@ -1,12 +1,59 @@
-<div id="share-okr" class="page-section">
-  <h3>Share your OKR with stakeholders who gain from knowing your work plan</h3>
-  <%= form_for @okr, html: { class: "" } do |form| %>
-    <%= form.label :public_url, "Public URL:" %>
-    <%= form.text_field :public_url %><br />
-    <%= form.label :admin_url, "Admin URL:" %>
-    <%= form.text_field :admin_url %><br />
+<%= render 'steps_header' %>
 
-    <%= link_to "View OKR" %>
+<section id="form-box">
+  <h3>Congratulations! Manage and share your OKR with these links</h3>
 
-  <% end %>
+  <div class="form-group">
+    <%= label_tag "public_url", "Public URL:", class: "col-sm-2 control-label" %>
+      <!-- :public_url -->
+    <div class="col-sm-4 input-group">
+      <%= text_field_tag "public-url", @public_url, class: "form-control" %>
+      <!-- :public_url -->
+      <div id="public_clip_button" class="input-group-addon my_clip_button" data-clipboard-target="public-url">
+        <i class="fa fa-clipboard"></i>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= label_tag "admin_url", "Admin URL:", class: "col-sm-2 control-label" %>
+      <!-- :public_url -->
+    <div class="col-sm-4 input-group">
+      <%= text_field_tag "admin-url", @admin_url, class: "form-control" %>
+      <!-- :public_url -->
+      <div id="admin_clip_button" class="input-group-addon my_clip_button" data-clipboard-target="admin-url">
+        <i class="fa fa-clipboard"></i>
+      </div>
+    </div>
+  </div>
+
+  <p>These links have also been sent to you by e-mail.</h3>
+
+  <h3>Share on social media</h3>
+
+  <div class="row">
+    <ul class="list-inline">
+      <li>Tweet your OKRs</li>
+      <li>Share your OKRs on LinkedIn</li>
+    </ul>
+  </div>
+
+  <div class="row-group centered">
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= link_to "View OKR", show_okr_path(@okr.admin_url), class: "btn btn-lg btn-primary" %>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<% content_for :copy_to_clipboard do %>
+  <script>
+    $(document).ready(function() {
+      var public_clip = new ZeroClipboard($("#public_clip_button"))
+      var admin_clip = new ZeroClipboard($("#admin_clip_button"))
+    });
+  </script>
+<% end %>

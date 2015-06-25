@@ -1,56 +1,75 @@
 <%= render 'steps_header' %>
 
-<%= form_for @okr, url: { action: 'define' }, html: { class: "form-horizontal"} do |form| %>
-
-  <div id="scope-okr" class="page-section">
-    <div class="form-block">
-      <h3>Define the scope of your objectives</h3>
+<section id="form-box">
+  <div class="container-fluid">
+    <div class="row-group">
+      <div class="row">
+        <h3>Set the scope of your objectives</h3>
+      </div>
     </div>
+
+    <%= form_for @okr, url: { action: 'define' }, html: { class: "form-horizontal"} do |form| %>
+
     <% if @okr.errors.any? %>
-      <div class="form-block">
+      <div class="row">
         <p><%= @okr.errors.full_messages.first %></p>
       </div>
     <% end %>
-    <div class="form-block">
-      <div class="form-group">
-        <%= form.label :owner, "Team:", class: "col-sm-2 control-label" %>
-        <div class="col-sm-8">
-          <%= form.text_field :owner, class: "form-control input-sm" %>
-        </div>
-        <%= render 'helper' %>
-      </div>
-      <div class="form-group">
-        <%= form.label :period, "Period:", class: "col-sm-2 control-label" %>
-        <div class="col-sm-8">
-          <%= form.date_select :period, class: "form-control input-sm" %>
-        </div>
-        <%= render 'helper' %>
-      </div>
-    </div>
-    <div class="form-block">
-      <div class="form-group">
-        <%= form.label :admin_name, "Your name:", class: "col-sm-2 control-label" %>
-        <div class="col-sm-8">
-          <%= form.text_field :admin_name, class: "form-control input-sm" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= form.label :admin_email, "Your e-mail:", class: "col-sm-2 control-label" %>
-        <div class="col-sm-8">
-          <%= form.text_field :admin_email, class: "form-control input-sm" %>
-        </div>
-        <%= render 'helper' %>
-      </div>
-    </div>
-  </div>
 
-  <div class="page-section">
-    <div class="form-group">
-      <div class="col-sm-12">
-        <%= link_to "Cancel", root_path, class: "btn btn-default" %>
-        <%= form.submit "Next", class: "btn btn-primary" %>
+    <div class="row-group">
+      <div class="row">
+        <div class="form-group">
+          <%= form.label :owner, "Team:", class: "col-sm-2 control-label" %>
+          <div class="col-sm-8">
+            <%= form.text_field :owner, class: "form-control" %>
+          </div>
+          <%= render 'helper' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <%= form.label :period, "Period:", class: "col-sm-2 control-label" %>
+          <div class="col-sm-8">
+            <%= form.date_select :period, class: "form-control" %>
+          </div>
+          <%= render 'helper' %>
+        </div>
       </div>
     </div>
-  </div>
 
-<% end %>
+    <div class="row-group">
+      <div class="row">
+        <div class="form-group">
+          <%= form.label :admin_name, "Your name:", class: "col-sm-2 control-label" %>
+          <div class="col-sm-8">
+            <%= form.text_field :admin_name, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <%= form.label :admin_email, "Your e-mail:", class: "col-sm-2 control-label" %>
+          <div class="col-sm-8">
+            <%= form.text_field :admin_email, class: "form-control" %>
+          </div>
+          <%= render 'helper' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-group">
+      <div class="row">
+        <div class="form-group centered">
+          <div class="col-sm-12">
+            <%= link_to "Cancel", root_path, class: "btn btn-lg btn-default" %>
+            <%= form.submit "Next", class: "btn btn-lg btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+</section>

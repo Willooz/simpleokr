@@ -2,6 +2,11 @@ class OkrsController < ApplicationController
   before_action :find_by_url, only: [:show, :share, :edit]
 
   def show
+    if params[:url].length < 21
+      @admin_access = false
+    else
+      @admin_access = true
+    end
   end
 
   def new
@@ -15,6 +20,7 @@ class OkrsController < ApplicationController
       objective.key_results.build()
       render 'define'
     else
+      @okr.errors
       render 'new', alert: "Oops! Verify the fields highlighted below."
     end
   end
@@ -66,6 +72,8 @@ class OkrsController < ApplicationController
   end
 
   def share
+    @public_url = "http://www.simpleokr.com/#{@okr.public_url}"
+    @admin_url = "http://www.simpleokr.com/#{@okr.admin_url}"
   end
 
   def edit

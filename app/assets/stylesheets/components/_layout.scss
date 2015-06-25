@@ -1,4 +1,9 @@
+// GENERAL PAGE LAYOUT ATTRIBUTES
+
 body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
   color: $dark-gray;
   font-family: $font-family;
   font-weight: 200;
@@ -8,21 +13,72 @@ body {
   background: white;
 }
 
-h1, h2 {
-  font-size: $header-font-size;
-  margin: 0px;
-  padding: 20px 0px;
-  a {
-
-  }
-  span {
-    font-weight: bold;
-  }
+section {
+  padding: 50px 20px 50px 20px;
 }
 
-h3, h4 {
-  font-weight: regular;
-  font-size: $title-font-size;
+.container-fluid {
+  max-width: 900px;
+  margin: 0px auto;
+}
+
+.centered {
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0px;
+}
+
+h1, h2 {
+  padding: 20px 0px;
+  color: $midnight-blue;
+  font-weight: 600;
+}
+
+h1 {                  // Home Headline
+  padding-bottom: 20px;
+  font-size: 42px;
+}
+
+h2 {                  // Home Section Title and Page Title
+  padding-bottom: 50px;
+  font-size: 28px;
+}
+
+h3 {                  // Home Step Titles
+  padding-top: 30px;
+  padding-bottom: 20px;
+  font-size: 24px;
+  color: $blue;
+}
+
+h4, h5 {
+  font-size: 20px;
+}
+
+h4 {                  // Page Step Titles
+  // display: inline;
+  padding-bottom: 30px;
+  color: $gray;
+  font-weight: 200;
+}
+
+h5 {                  // Home Sub Headline, Benefits Titles and Page Box Header
+  padding-bottom: 20px;
+  color: $dark-gray;
+  font-weight: 400;
+}
+
+label {
+  font-weight: 400;
+}
+
+input, textarea {
+  color: $dark-gray;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: $letter-spacing;
 }
 
 a:link, a:active, a:visited, a:hover, a:focus {
@@ -35,19 +91,6 @@ a:link, a:active, a:visited, a:hover, a:focus {
   min-height: 100%;
 }
 
-.page-section {
-  margin: 0px;
-  padding: 20px;
-}
-
-#scope-okr, #define-okr, #share-okr {
-  background: $light-blue;
-}
-
-.form-block {
-  padding-bottom: 30px;
-}
-
 .float-left {
   float: left;
 }
@@ -56,6 +99,8 @@ a:link, a:active, a:visited, a:hover, a:focus {
   float: right;
 }
 
-.text-center {
-  text-align: center;
+.list-inline {
+  li {
+    padding: 0px 20px;
+  }
 }

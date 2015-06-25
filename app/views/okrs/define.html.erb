@@ -1,53 +1,47 @@
 <%= render 'steps_header' %>
 
-<%= form_for @okr, html: { class: "form-horizontal" } do |form| %>
+<section id="form-box">
+  <h3>Write your Objectives and associated Key Results</h3>
 
-  <div id="define-okr" class="page-section">
-    <div class="form-block">
-      <h3>Write your Objectives and associated Key Results</h3>
-    </div>
+  <%= form_for @okr, html: { class: "form-horizontal" } do |form| %>
 
-    <% if @okr.errors.any? %>
-      <div class="form-block">
-        <p><%= @okr.errors.full_messages.first %></p>
-      </div>
+  <% if @okr.errors.any? %>
+      <%= render partial: "shared/flashes", locals: { alert: @okr.errors.full_messages.first } %>
+  <% end %>
+
+  <%= form.hidden_field :owner %>
+  <%= form.hidden_field :period %>
+  <%= form.hidden_field :admin_name %>
+  <%= form.hidden_field :admin_email %>
+  <% @okr.objectives.each_with_index do |objective, index| %>
+    <%= form.fields_for :objectives, objective do |o_form| %>
+      <%= render partial: "o_form", locals: { form: o_form, objective: objective, index: index } %>
     <% end %>
+  <% end %>
 
-    <div class="okr-form-group">
-      <%= form.hidden_field :owner %>
-      <%= form.hidden_field :period %>
-      <%= form.hidden_field :admin_name %>
-      <%= form.hidden_field :admin_email %>
-      <% @okr.objectives.each_with_index do |objective, index| %>
-        <%= form.fields_for :objectives, objective do |o_form| %>
-          <%= render partial: "o_form", locals: { form: o_form, objective: objective, index: index } %>
+  <div class="row-group">
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= button_tag(value: "add_o", class: "btn btn-default btn-xs") do %>
+          <i class="fa fa-plus-circle"></i> add objective
         <% end %>
-      <% end %>
-
-      <div class="form-block">
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= button_tag(value: "add_o", class: "btn btn-default btn-xs") do %>
-              <i class="fa fa-plus-circle"></i> add objective
-            <% end %>
-            <% if @okr.objectives.size > 1 %>
-              <%= button_tag(value: "remove_o", class: "btn btn-default btn-xs") do %>
-                <i class="fa fa-trash"></i> remove objective
-              <% end %>
-            <% end %>
-          </div>
-        </div>
+        <% if @okr.objectives.size > 1 %>
+          <%= button_tag(value: "remove_o", class: "btn btn-default btn-xs") do %>
+            <i class="fa fa-trash"></i> remove objective
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
 
-  <div class="page-section">
+  <div class="row-group centered">
     <div class="form-group">
       <div class="col-sm-12">
-        <%= link_to "Back", "#", class: "btn btn-default" %>
-        <%= form.submit "Create OKR", class: "btn btn-primary" %>
+        <%= link_to "Back", new_okr_path, class: "btn btn-lg btn-default" %>
+        <%= form.submit "Create OKR", class: "btn btn-lg btn-primary" %>
       </div>
     </div>
   </div>
 
-<% end %>
+  <% end %>
+</section>
