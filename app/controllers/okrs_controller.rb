@@ -1,5 +1,5 @@
 class OkrsController < ApplicationController
-  before_action :find_by_url, only: [:show, :share, :edit]
+  before_action :find_by_url, only: [:show, :share, :edit, :review]
 
   def show
     if params[:url].length < 21
@@ -80,6 +80,9 @@ class OkrsController < ApplicationController
   end
 
   def update
+  end
+
+  def review
   end
 
   def destroy

@@ -1,36 +1,28 @@
 <section id="okr-header">
-  <div class="container-fluid centered">
+  <h1>Objectives and Key Results</h1>
+  <ul class="list-inline">
+    <li><h4><i class="fa fa-users"></i> <%= @okr.owner %></h4></li>
+    <li><h4><i class="fa fa-calendar"></i> <%= @okr.period %></h4></li>
+  </ul>
+  <% if @admin_access %>
     <div class="row">
-      <h1>Objectives and Key Results</h1>
-      <ul class="list-inline">
-        <li><h4><i class="fa fa-users"></i> <%= @okr.owner %></h4></li>
-        <li><h4><i class="fa fa-calendar"></i> <%= @okr.period %></h4></li>
-      </ul>
+      <%= link_to "Edit", edit_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
+      <%= link_to "Share", share_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
+      <%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-lg btn-primary" %>
     </div>
-    <% if @admin_access %>
-      <div class="row">
-        <%= link_to "Edit", edit_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
-        <%= link_to "Share", share_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
-        <%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-lg btn-primary" %>
-      </div>
-    <% end %>
-  </div>
+  <% end %>
 </section>
 
 <section id="okr">
-  <div class="container-fluid">
-    <% @okr.objectives.each do |o| %>
-      <div class="row-group">
-        <div class="row">
-          <h3><%= o.description %></h3>
-        </div>
+  <% @okr.objectives.each do |o| %>
+    <div class="row-group">
+      <h3><%= o.description %></h3>
+      <ul>
         <% o.key_results.each do |kr| %>
-          <div class="row">
-            <%= kr.description %>
-          </div>
+          <li><h5><%= kr.description %></h5></li>
         <% end %>
-      </div>
-    <% end %>
-  </div>
+      </ul>
+    </div>
+  <% end %>
 </section>
 
