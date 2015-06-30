@@ -1,98 +1,94 @@
-var data = []
-d3.selectAll(".score input")
-  .each(function() {
-    data.push(this.text);
-  });
+$(document).ready(function() {
 
-console.log(data);
+  var data = []
 
-var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 200 - margin.left - margin.right,
-    sliderBoxHeight = 40,
-    height = data.length * sliderBoxHeight,
-    radius = 10,
-    sliderHeight = 6,
-    sliderRadius = sliderHeight / 2;
+  d3.selectAll(".score input")
+    .each(function() {
+      var input = d3.select(this).attr("value");
+      data.push(input);
+    });
 
-var x = d3.scale.linear()
-    .domain([0, 1])
-    .range([0, width])
-    .clamp(true);
+  // console.log(data);
 
-var hue = d3.scale.linear()
-    .domain([0, 1])
-    .range([0, 125])
-    .clamp(true);
+  var margin = {top: 0, right: 10, bottom: 0, left: 10},
+      width = 200 - margin.left - margin.right,
+      height = 40,
+      radius = 10,
+      sliderHeight = 6,
+      sliderRadius = sliderHeight / 2;
 
-var sliderBox = d3.selectAll(".canvas")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom);
+  var x = d3.scale.linear()
+      .domain([0, 1])
+      .range([0, width])
+      .clamp(true);
 
-var sliderBox = svg.selectAll("g")
-    .data(data)
-  .enter().append("g")
-    .attr("transform", function(d, i) { return "translate(" + margin.left + "," + i * sliderBoxHeight + ")" });
-    // .each(function(d, i) { d.index = i; });
+  var hue = d3.scale.linear()
+      .domain([0, 1])
+      .range([0, 125])
+      .clamp(true);
 
-sliderBox.append("rect")
-    .attr("y", sliderBoxHeight - 20 )
-    .attr("width", width )
-    .attr("height", sliderHeight )
-    .attr("rx", sliderRadius )
-    .attr("ry", sliderRadius )
-    .attr("fill", "lightgrey" );
+  var svg = d3.selectAll(".canvas")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g");
 
-sliderBox.append("rect")
-    .attr("y", sliderBoxHeight - 20 )
-    .attr("width", function(d) { return x(d) } )
-    .attr("height", sliderHeight )
-    .attr("rx", sliderRadius )
-    .attr("ry", sliderRadius )
-    .attr("fill", function(d) { return d3.hsl(hue(d), .8, .8) } )
-    .attr("id", "colored");
+  var slider = d3.selectAll("g")
+      .data(data);
 
-sliderBox.append("text")
-    .attr("y", sliderBoxHeight - 50 )
-    .attr("dy", "1em")
-    .text(function(d) { return d3.round(d, 1) });
+  slider.append("rect")
+      .attr("y", height - 20 )
+      .attr("width", width )
+      .attr("height", sliderHeight )
+      .attr("rx", sliderRadius )
+      .attr("ry", sliderRadius )
+      .attr("fill", "lightgrey" );
 
-var handle = sliderBox.append("circle")
-    .attr("r", radius)
-    .attr("cx", function(d) { return x(d) } )
-    .attr("cy", sliderBoxHeight - 20 )
-    .attr("fill", "white" );
+  slider.append("rect")
+      .attr("y", height - 20 )
+      .attr("width", function(d) { return x(d) } )
+      .attr("height", sliderHeight )
+      .attr("rx", sliderRadius )
+      .attr("ry", sliderRadius )
+      .attr("fill", function(d) { return d3.hsl(hue(d), .8, .8) } )
+      .attr("id", "colored");
 
-var brush = d3.svg.brush()
-  .x(x)
-  .extent([0, 1])
-  .on("brush", brushed);
+  slider.append("text")
+      .attr("y", height - 50 )
+      .attr("dy", "1em")
+      .text(function(d) { return d3.round(d, 1) });
 
-handle
-    .call(brush);
+  var handle = slider.append("circle")
+      .attr("r", radius)
+      .attr("cx", function(d) { return x(d) } )
+      .attr("cy", height - 20 )
+      .attr("fill", "white" );
 
-function brushed() {
-  var sliderPosition = x.invert(d3.mouse(this)[0]);
-  var sliderColor = hue(sliderPosition);
-  brush.extent([sliderPosition, sliderPosition]);
+  var brush = d3.svg.brush()
+    .x(x)
+    .extent([0, 1])
+    .on("brush", brushed);
 
-  d3.select(this)
-    .attr("cx", x(sliderPosition));
+  handle
+      .call(brush);
 
-  d3.select(this.parentNode).select("#colored")
-    .attr("width", x(sliderPosition))
-    .attr("fill", d3.hsl(sliderColor, .8, .8));
+  function brushed() {
+    var sliderPosition = x.invert(d3.mouse(this)[0]);
+    var sliderColor = hue(sliderPosition);
+    brush.extent([sliderPosition, sliderPosition]);
 
-  d3.select(this.parentNode).select("text")
-    .text(d3.round(sliderPosition, 1));
+    d3.select(this)
+      .attr("cx", x(sliderPosition));
 
-  // var i = d3.select(this.parentNode).data().index;
-  //   .update(function(d, i) { d[i] = sliderPosition } );// var index = d3.select(this.parentNode).datum();
+    d3.select(this.parentNode).select("#colored")
+      .attr("width", x(sliderPosition))
+      .attr("fill", d3.hsl(sliderColor, .8, .8));
 
-  // value = d3.round(sliderPosition, 1);
-  // console.log(index);
-  // console.log(data[1]);
-  // d3.select(this.parentNode)
-  // data[i] = d3.round(sliderPosition, 1);
-  console.log(data);
+    d3.select(this.parentNode).select("text")
+      .text(d3.round(sliderPosition, 1));
 
-}
+    // PUT CHANGED DATA BACK INTO THE INPUT
+    console.log(data);
+
+  }
+
+});

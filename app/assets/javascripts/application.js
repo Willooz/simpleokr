@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require zeroclipboard
+//= require d3
 //= require_tree .
