@@ -11,7 +11,8 @@
     admin_name: Faker::Name.name,
     admin_email: Faker::Internet.email,
     owner: Faker::Name.title,
-    period: Faker::Date.forward(100),
+    year: 2015,
+    quarter: 4,
     public_url: SecureRandom.hex(10),
     admin_url: SecureRandom.hex(16)
     )

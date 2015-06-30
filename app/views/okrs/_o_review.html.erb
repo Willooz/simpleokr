@@ -1,0 +1,20 @@
+<div class="row-group">
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+      <h3><%= objective.description %></h3>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <%= form.hidden_field :score %>
+    </div>
+    <div class="col-xs-6 col-md-2">
+      <!-- form.text_field :conclusion -->
+    </div>
+  </div>
+
+  <% objective.key_results.each_with_index do |kr, index| %>
+    <%= form.fields_for :key_results, kr do |kr_form| %>
+      <%= render partial: "kr_review", locals: { form: kr_form, kr: kr, index: index } %>
+    <% end %>
+  <% end %>
+
+</div>

@@ -14,6 +14,8 @@ class OkrsController < ApplicationController
   end
 
   def define
+    okr_params[:year] = okr_params[:year].to_i
+    okr_params[:quarter] = okr_params[:quarter][/\d/].to_i
     @okr = Okr.new(okr_params)
     if @okr.valid?
       objective = @okr.objectives.build()
@@ -91,7 +93,7 @@ class OkrsController < ApplicationController
   private
 
   def okr_params
-    params.require(:okr).permit(:admin_name, :admin_email, :owner, :period,
+    params.require(:okr).permit(:admin_name, :admin_email, :owner, :year, :quarter,
       objectives_attributes: [
         :description,
         key_results_attributes: :description

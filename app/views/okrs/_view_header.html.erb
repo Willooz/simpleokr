@@ -1,0 +1,14 @@
+<section id="okr-header">
+  <h1>Objectives and Key Results</h1>
+  <ul class="list-inline">
+    <li><h4><i class="fa fa-users"></i> <%= @okr.owner %></h4></li>
+    <li><h4><i class="fa fa-calendar"></i> <%= @okr.quarter %> <%= @okr.year %></h4></li>
+  </ul>
+  <% if @admin_access %>
+    <div class="row">
+      <%= link_to "Edit", edit_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
+      <%= link_to "Share", share_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
+      <%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
+</section>

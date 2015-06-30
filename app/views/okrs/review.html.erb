@@ -1,50 +1,15 @@
-<section id="okr-header">
-  <h1>Objectives and Key Results</h1>
-  <ul class="list-inline">
-    <li><h4><i class="fa fa-users"></i> <%= @okr.owner %></h4></li>
-    <li><h4><i class="fa fa-calendar"></i> <%= @okr.period %></h4></li>
-  </ul>
-  <% if @admin_access %>
-    <div class="row">
-      <%= link_to "Edit", edit_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
-      <%= link_to "Share", share_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
-      <%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-lg btn-primary" %>
-    </div>
-  <% end %>
-</section>
+<%= render 'view_header' %>
 
 <section id="okr">
-  <div class="container-fluid">
-    <% @okr.objectives.each do |o| %>
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <h3><%= o.description %></h3>
-        </div>
-        <div class="col-xs-12 col-md-3">
-          <h3>GRADE</h3>
-        </div>
-        <div class="col-xs-12 col-md-3">
-          <h3>TAGS</h3>
-        </div>
-      </div>
-      <% o.key_results.each do |kr| %>
-        <div class="row">
-          <div class="col-xs-12 col-md-7">
-            <h5><%= kr.description %></h5>
-          </div>
-          <div class="col-xs-12 col-md-2">
-            <%= text_field_tag "grade", nil, class: "form-control input-lg" %>
-          </div>
-          <div class="col-xs-12 col-md-2">
-            <svg>
-            </svg>
-          </div>
-          <div class="col-xs-12 col-md-1">
-            <span class="label label-default">Default</span>
-            <span class="label label-primary">Primary</span>
-          </div>
-        </div>
+  <%= form_for @okr do |form| %>
+    <div class="container-fluid">
+
+      <% @okr.objectives.each_with_index do |objective, index| %>
+        <%= form.fields_for :objectives, objective do |o_form| %>
+          <%= render partial: "o_review", locals: { form: o_form, objective: objective, index: index } %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+
+    </div>
+  <% end %>
 </section>

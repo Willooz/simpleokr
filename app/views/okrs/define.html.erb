@@ -10,7 +10,8 @@
   <% end %>
 
   <%= form.hidden_field :owner %>
-  <%= form.hidden_field :period %>
+  <%= form.hidden_field :year %>
+  <%= form.hidden_field :quarter %>
   <%= form.hidden_field :admin_name %>
   <%= form.hidden_field :admin_email %>
   <% @okr.objectives.each_with_index do |objective, index| %>
@@ -21,15 +22,17 @@
 
   <div class="row-group">
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= button_tag(value: "add_o", class: "btn btn-default btn-xs") do %>
-          <i class="fa fa-plus-circle"></i> add objective
-        <% end %>
-        <% if @okr.objectives.size > 1 %>
-          <%= button_tag(value: "remove_o", class: "btn btn-default btn-xs") do %>
-            <i class="fa fa-trash"></i> remove objective
+      <div class="col-sm-offset-2 col-sm-8">
+        <div class="pull-right">
+          <% if @okr.objectives.size > 1 %>
+            <%= button_tag(value: "remove_o", class: "btn btn-default btn-xs") do %>
+              <i class="fa fa-trash"></i> remove objective
+            <% end %>
           <% end %>
-        <% end %>
+          <%= button_tag(value: "add_o", class: "btn btn-default btn-xs") do %>
+            <i class="fa fa-plus-circle"></i> add objective
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

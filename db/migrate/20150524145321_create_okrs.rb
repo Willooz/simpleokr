@@ -6,7 +6,8 @@ class CreateOkrs < ActiveRecord::Migration
       t.string  :admin_url
       t.string  :public_url
       t.string  :owner
-      t.date    :period
+      t.integer :year
+      t.integer :quarter
       t.decimal :score, precision: 2, scale: 1
       t.boolean :reviewed?, default: false
 

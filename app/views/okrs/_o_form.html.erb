@@ -5,7 +5,7 @@
       <div class="col-sm-8">
         <%= form.text_field :description, class: "form-control" %>
       </div>
-      <%= render 'helper' %>
+      <%= render partial: 'helper', locals: { text: "Write 3 to 4 objectives for a quarter." } %>
     </div>
   <!-- </div> -->
 
@@ -15,15 +15,17 @@
 
   <!-- <div class="row"> -->
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= button_tag(value: "add_kr_#{index}", data: { objective: objective.id }, class: "btn btn-default btn-xs") do %>
-          <i class="fa fa-plus-circle"></i> add key result
-        <% end %>
-        <% if objective.key_results.size > 1 %>
-          <%= button_tag(value: "remove_kr_#{index}", data: { objective: index }, class: "btn btn-default btn-xs") do %>
-            <i class="fa fa-trash"></i> remove key result
+      <div class="col-sm-offset-2 col-sm-8">
+        <div class="pull-right">
+          <% if objective.key_results.size > 1 %>
+            <%= button_tag(value: "remove_kr_#{index}", data: { objective: index }, class: "btn btn-default btn-xs") do %>
+              <i class="fa fa-trash"></i> remove key result
+            <% end %>
           <% end %>
-        <% end %>
+          <%= button_tag(value: "add_kr_#{index}", data: { objective: objective.id }, class: "btn btn-default btn-xs") do %>
+            <i class="fa fa-plus-circle"></i> add key result
+          <% end %>
+        </div>
       </div>
     </div>
   <!-- </div> -->

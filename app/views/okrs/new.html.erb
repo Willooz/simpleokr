@@ -23,17 +23,22 @@
           <div class="col-sm-8">
             <%= form.text_field :owner, class: "form-control" %>
           </div>
-          <%= render 'helper' %>
+          <%= render partial: 'helper', locals: { text: "The responsible for the objectives. You? Your team? Your organisation?" } %>
         </div>
       </div>
 
       <div class="row">
         <div class="form-group">
-          <%= form.label :period, "Period:", class: "col-sm-2 control-label" %>
-          <div class="col-sm-8">
-            <%= form.date_select :period, class: "form-control" %>
+          <%= form.label :quarter, "Period:", class: "col-sm-2 control-label" %>
+          <div class="col-sm-2">
+            <%= form.select :quarter, options_for_select(["Q1", "Q2", "Q3", "Q4"], "Q3"), {}, {class: "form-control"} %>
           </div>
-          <%= render 'helper' %>
+          <div class="col-sm-2">
+            <%= form.select :year, options_for_select([2014, 2015, 2016], 2015), {}, {class: "form-control"} %>
+          </div>
+          <div class="col-sm-4">
+          </div>
+          <%= render partial: 'helper', locals: { text: "Select the quarter you will be working towards the objectives." } %>
         </div>
       </div>
     </div>
@@ -54,7 +59,7 @@
           <div class="col-sm-8">
             <%= form.text_field :admin_email, class: "form-control" %>
           </div>
-          <%= render 'helper' %>
+          <%= render partial: 'helper', locals: { text: "Enter your personal name and e-mail to receive the admin link once you've finished setting your quarterly OKRs" } %>
         </div>
       </div>
     </div>
