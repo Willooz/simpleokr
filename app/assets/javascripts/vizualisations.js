@@ -10,11 +10,10 @@ $(document).ready(function() {
 
   // console.log(data);
 
-  var margin = {top: 0, right: 10, bottom: 0, left: 10},
-      width = 200 - margin.left - margin.right,
-      height = 40,
+  var width = 135,
+      height = 30,
       radius = 10,
-      sliderHeight = 6,
+      sliderHeight = 4,
       sliderRadius = sliderHeight / 2;
 
   var x = d3.scale.linear()
@@ -28,15 +27,16 @@ $(document).ready(function() {
       .clamp(true);
 
   var svg = d3.selectAll(".canvas")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("width", 200)
+      .attr("height", height)
       .append("g");
 
   var slider = d3.selectAll("g")
-      .data(data);
+      .data(data)
+      .attr("transform", "translate(50,0)");
 
   slider.append("rect")
-      .attr("y", height - 20 )
+      .attr("y", 10 )
       .attr("width", width )
       .attr("height", sliderHeight )
       .attr("rx", sliderRadius )
@@ -44,7 +44,7 @@ $(document).ready(function() {
       .attr("fill", "lightgrey" );
 
   slider.append("rect")
-      .attr("y", height - 20 )
+      .attr("y", 10 )
       .attr("width", function(d) { return x(d) } )
       .attr("height", sliderHeight )
       .attr("rx", sliderRadius )
@@ -53,15 +53,15 @@ $(document).ready(function() {
       .attr("id", "colored");
 
   slider.append("text")
-      .attr("y", height - 50 )
-      .attr("dy", "1em")
+      .attr("x", -50)
+      .attr("y", 17)
+
       .text(function(d) { return d3.round(d, 1) });
 
   var handle = slider.append("circle")
       .attr("r", radius)
       .attr("cx", function(d) { return x(d) } )
-      .attr("cy", height - 20 )
-      .attr("fill", "white" );
+      .attr("cy", 11 );
 
   var brush = d3.svg.brush()
     .x(x)
