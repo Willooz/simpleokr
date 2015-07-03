@@ -41,7 +41,7 @@ $(document).ready(function() {
       .attr("height", sliderHeight )
       .attr("rx", sliderRadius )
       .attr("ry", sliderRadius )
-      .attr("fill", "lightgrey" );
+      .attr("fill", "#F0F0F0" );
 
   slider.append("rect")
       .attr("y", 10 )
