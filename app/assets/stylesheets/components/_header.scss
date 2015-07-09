@@ -1,22 +1,19 @@
 header {
-  width: 100%;
-  height: 80px;
-  padding: 10px 20px;
-  // border-bottom: 1px solid $white-gray;
-  background-color: $light-blue;
-
+  // width: 100%;
+  // height: 80px;
+  background-color: $blue;
 }
 
 .header {
-  max-width: 900px;
+  width: 900px;
   margin: 0px auto;
-  h1 {
-    font-size: 24px;
-  }
-  .logo {
-    color: $midnight-blue;
+  padding: 20px;
+  a {
+    color: white;
   }
 }
+
+h1.logo { font-size: 24px }
 
 .dropdown {
   padding: 22px;

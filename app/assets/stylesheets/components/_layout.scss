@@ -1,16 +1,28 @@
-// GENERAL PAGE LAYOUT ATTRIBUTES
+// GENERIC PAGE LAYOUT
 
-body {
+// Reset main blocks
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, ol, ul, figure {
   margin: 0px;
   padding: 0px;
-  height: 100%;
-  color: $dark-gray;
+}
+
+// Style page base
+body {
+  // height: 100%;
   font-family: $font-family;
   font-weight: 200;
   font-size: $text-font-size;
-  letter-spacing: 0.5px;
+  letter-spacing: $letter-spacing;
   line-height: $line-height;
+  color: $dark-gray;
   background: white;
+}
+
+// Set `margin-bottom` to maintain vertical rhythm
+h1, h2, h3, h4, h5, h6,
+p, blockquote, ol, ul, figure {
+  margin-bottom: $vertical-spacing;
 }
 
 section {
@@ -104,8 +116,8 @@ a:link, a:active, a:visited, a:hover, a:focus {
   float: right;
 }
 
-.list-inline {
-  li {
-    padding: 0px 20px;
-  }
-}
+// .list-inline {
+//   li {
+//     padding: 0px 20px;
+//   }
+// }
