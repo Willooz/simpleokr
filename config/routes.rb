@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   resources :okrs, only: [:new, :create, :update, :destroy]
   post '/define', to: 'okrs#define', as: 'define_okr'
+  patch '/finalize', to: 'okrs#finalize', as: 'finalize_okr'
+  # put '/finalize', to: 'okrs#finalize', as: 'finalize_okr'
   resources :objectives, only: [:new, :destroy]
   resources :key_results, only: [:new, :destroy]
 

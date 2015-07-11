@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150524145933) do
     t.integer  "year"
     t.integer  "quarter"
     t.decimal  "score",       precision: 2, scale: 1
-    t.boolean  "reviewed?",                           default: false
+    t.boolean  "reviewed",                            default: false
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
   end

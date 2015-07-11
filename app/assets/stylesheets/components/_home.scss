@@ -1,7 +1,26 @@
-// LAYOUT ATTRIBUTES specific to STATIC WEBPAGES
+// HOME/LANDING PAGE
 
-#tagline {
-  background: linear-gradient(#EFF7FF, #FFFFFF);
+.home {
+  background: -webkit-linear-gradient(#C6EAFF, #FFFFFF);
+  background: -o-linear-gradient(#C6EAFF, #FFFFFF);
+  background: linear-gradient(to bottom, #C6EAFF, $white 300*$px);
+
+}
+
+// TAGLINE SECTION
+
+// Home Title
+h1.home-title {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+// Home Subtitle
+h4.home-subtitle {
+  margin-bottom: 2em;
+  font-size: 20*$px;
+  font-weight: 200;
+  color: $blue;
 }
 
 .call-to-action {
@@ -27,9 +46,36 @@
   height: 30px;
 }
 
+// OTHER SECTIONS
+
+// Home Section Titles
+h2.home-section-title {
+  margin-bottom: 2em;
+}
+
+// Home Text Titles
+h3.home-text-title {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+// Home Feature Titles
+h5.home-benefit-title {
+  margin-bottom: 1.2em;
+}
+
 .wide-text {
   padding-left: 10%;
   padding-right: 10%;
+}
+
+.video {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30*$px;
+  border-radius: 5px;
+  background-color: black;
 }
 
 .icon {
@@ -39,8 +85,4 @@
 .benefit {
   margin: 40px 0px 40px 120px;
   text-align: left;
-}
-
-.normal {
-  font-weight: 400;
 }

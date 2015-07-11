@@ -1,15 +1,46 @@
 <%= render 'view_header' %>
 
-<section id="okr">
-  <% @okr.objectives.each do |o| %>
-    <div class="row-group">
-      <h3><%= o.description %></h3>
-      <ul>
-        <% o.key_results.each do |kr| %>
-          <li><h5><%= kr.description %></h5></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-</section>
+<%= render partial: 'shared/flashes' %>
 
+<section id="okr">
+  <div class="container-fluid">
+
+    <% @okr.objectives.each do |objective| %>
+      <div class="row-group">
+
+        <div class="row">
+          <div class="col-xs-12 col-md-7">
+            <p class="objective"><%= objective.description %></p>
+          </div>
+          <div class="col-xs-6 col-md-3">
+            <% if @okr.reviewed %>
+              <div class="score" data-score="<%= objective.score %>">
+              </div>
+            <% end %>
+          </div>
+          <div class="col-xs-6 col-md-2">
+            <!-- objective.conclusion -->
+          </div>
+        </div>
+
+        <% objective.key_results.each do |kr| %>
+          <div class="row">
+            <div class="col-xs-12 col-md-7">
+              <p class="key-result"><%= kr.description %></p>
+            </div>
+            <div class="col-xs-12 col-md-3">
+              <% if @okr.reviewed %>
+                <div class="score" data-score="<%= kr.score %>">
+                </div>
+              <% end %>
+            </div>
+            <div class="col-xs-12 col-md-2">
+              <!-- kr.conclusion -->
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</section>

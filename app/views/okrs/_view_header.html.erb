@@ -1,14 +1,23 @@
-<section id="okr-header">
+<nav>
+
   <h1 class="title">Objectives and Key Results</h1>
-  <ul class="list-inline">
+
+  <% if @admin_access %>
+    <ul class="buttons list-inline">
+      <li><%= link_to "Share", share_okr_path(@okr.admin_url), class: "btn btn-default" %></li>
+      <li><%= link_to "Edit", edit_okr_path(@okr.admin_url), class: "btn btn-default" %></li>
+      <% unless @okr.reviewed? %>
+        <li><%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-primary" %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <ul class="scope list-inline">
     <li><h2 class="subtitle"><i class="fa fa-users"></i> <%= @okr.owner %></h2></li>
     <li><h2 class="subtitle"><i class="fa fa-calendar"></i> Q<%= @okr.quarter %> <%= @okr.year %></h2></li>
+    <li><h2 class="subtitle"><i class="fa fa-link"></i> <%= "/#{@okr.public_url}" %></h2></li>
   </ul>
-  <% if @admin_access %>
-    <div class="row">
-      <%= link_to "Edit", edit_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
-      <%= link_to "Share", share_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
-      <%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-lg btn-primary" %>
-    </div>
-  <% end %>
-</section>
+
+  <div class="clearfix"></div>
+
+</nav>

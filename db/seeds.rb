@@ -13,8 +13,8 @@
     owner: Faker::Name.title,
     year: 2015,
     quarter: 4,
-    public_url: SecureRandom.hex(10),
-    admin_url: SecureRandom.hex(16)
+    public_url: SecureRandom.hex(5),
+    admin_url: SecureRandom.hex(8)
     )
   3.times do
     obj = okr.objectives.create(description: Faker::Lorem.paragraph(2, false, 2))

@@ -3,9 +3,8 @@
     <p class="key-result"><%= kr.description %></p>
   </div>
   <div class="col-xs-12 col-md-3">
-    <div class="score">
-      <%= form.hidden_field :score %>
-      <svg class="canvas"></svg>
+    <div class="review">
+      <%= form.hidden_field :score, data: { id: index } %>
     </div>
   </div>
   <div class="col-xs-12 col-md-2">

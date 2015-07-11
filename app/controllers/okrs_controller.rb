@@ -1,12 +1,9 @@
 class OkrsController < ApplicationController
   before_action :find_by_url, only: [:show, :share, :edit, :review]
+  before_action :find_by_id, only: [:update, :finalize, :delete]
 
   def show
-    if params[:url].length < 21
-      @admin_access = false
-    else
-      @admin_access = true
-    end
+    @admin_access = admin_access
   end
 
   def new
@@ -14,9 +11,10 @@ class OkrsController < ApplicationController
   end
 
   def define
-    okr_params[:year] = okr_params[:year].to_i
-    okr_params[:quarter] = okr_params[:quarter][/\d/].to_i
-    @okr = Okr.new(okr_params)
+    okr_attributes = okr_params
+    okr_attributes[:year] = okr_attributes[:year].to_i
+    okr_attributes[:quarter] = okr_attributes[:quarter][/\d/].to_i
+    @okr = Okr.new(okr_attributes)
     if @okr.valid?
       objective = @okr.objectives.build()
       objective.key_results.build()
@@ -54,11 +52,11 @@ class OkrsController < ApplicationController
           render 'define'
         else
       end
-    # IF create button, proceed to savind...
+    # IF create button, proceed to save ...
     else
       if @okr.valid?
-        @okr.public_url = SecureRandom.hex(10)
-        @okr.admin_url = SecureRandom.hex(16)
+        @okr.public_url = SecureRandom.hex(5)
+        @okr.admin_url = SecureRandom.hex(8)
         @okr.save
         @okr.objectives.each do |o|
           o.key_results.each do |kr|
@@ -79,12 +77,30 @@ class OkrsController < ApplicationController
   end
 
   def edit
+    if @okr.reviewed
+      render 'review'
+    else
+      render 'edit'
+    end
   end
 
   def update
-  end
+    okr_attributes = okr_params
+    if params[:commit]=="Submit Review"
+      okr_attributes[:reviewed] = true
+    end
+    if @okr.valid?
+      @okr.update(okr_attributes)
+      redirect_to show_okr_path(@okr.admin_url), notice: "Congratulations on reviewing your OKR!"
+    else
+      render 'review', alert: "There was a problem with saving your review. Please contact support."
+    end
+   end
 
   def review
+  end
+
+  def finalize
   end
 
   def destroy
@@ -93,19 +109,33 @@ class OkrsController < ApplicationController
   private
 
   def okr_params
-    params.require(:okr).permit(:admin_name, :admin_email, :owner, :year, :quarter,
+    params.require(:okr).permit(:id, :admin_name, :admin_email, :owner, :year, :quarter,
       objectives_attributes: [
-        :description,
-        key_results_attributes: :description
+        :id, :description, :score,
+        key_results_attributes: [
+          :id, :description, :score
+          ]
         ]
       )
   end
 
   def find_by_url
-    if params[:url].length < 21
-      @okr = Okr.find_by public_url: params[:url]
+    if admin_access
+      @okr = Okr.find_by(admin_url: params[:url])
     else
-      @okr = Okr.find_by admin_url: params[:url]
+      @okr = Okr.find_by(public_url: params[:url])
+    end
+  end
+
+  def find_by_id
+    @okr = Okr.find(params[:id])
+  end
+
+  def admin_access
+    if params[:url].length > 12
+      return true
+    else
+      return false
     end
   end
 end

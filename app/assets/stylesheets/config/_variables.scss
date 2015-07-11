@@ -30,7 +30,7 @@ $font-family: "Proxima Nova", "sans-serif";
 // ---------------------------
 
 // Primary colors
-$blue: #2793FF;
+$blue: #4F9DEB; // #2793FF;
 $light-blue: #EFF7FF;
 $dark-blue: #003068;
 $midnight-blue: #2c3e50;
@@ -40,7 +40,7 @@ $yellow:     #f1c40f;
 $green:      #2ecc71;
 
 // Gray scale
-$black: #000000;
+$black: #2C3E50; // #000000;
 $white: #FFFFFF;
 $white-gray: #F0F0F0;
 $light-gray: #DCDCDC;
@@ -53,31 +53,29 @@ $dark-gray:  #4A4A4A;
 // ---------------------------
 
 
+// The size of 1rem in pixels
+$baseSize: 18px;
+// The size of a pixel in rems
+$px: 1 / ($baseSize / 1px) + 0rem;
+
+html {
+  font-size: $baseSize;
+}
 
 
 /* Extra small devices (phones, less than 768px) */
-// The size of 1rem in pixels
-$baseSize: 16;
-$basePixels: 16px;
+
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) { }
+@media (min-width: $screen-sm-min) { }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) {
-  // The size of 1rem in pixels
-  $baseSize: 12;
-  $basePixels: 12px;
-  // The size of 1rem in pixels
-  html { font-size: $basePixels }
-
-}
+@media (min-width: $screen-md-min) { }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) { }
+@media (min-width: $screen-lg-min) { }
 
-// The size of a pixel in rems
-$px: 1 / $baseSize + 0rem;
+
 
 
 
@@ -85,14 +83,15 @@ $px: 1 / $baseSize + 0rem;
 // Text
 // ---------------------------
 
-$vertical-spacing: 30px;
+
+$vertical-spacing: 2.3rem;
 $letter-spacing: 0.5px;
 $line-height: 1.5;
 
 
 $header-font-size: 24px;   // App title (h1) and Page title (h2)
 $title-font-size: 18px;    // Page navigation (h3)
-$text-font-size: 16px;     // Block titles, text, links, form labels (p)
+$text-font-size: 18px;     // Block titles, text, links, form labels (p)
 
 // ---------------------------
 // Buttons

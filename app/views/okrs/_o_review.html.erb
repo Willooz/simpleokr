@@ -11,9 +11,9 @@
     </div>
   </div>
 
-  <% objective.key_results.each_with_index do |kr, index| %>
+  <% objective.key_results.each_with_index do |kr, i| %>
     <%= form.fields_for :key_results, kr do |kr_form| %>
-      <%= render partial: "kr_review", locals: { form: kr_form, kr: kr, index: index } %>
+      <%= render partial: "kr_review", locals: { form: kr_form, kr: kr, index: "#{index+1}#{i+1}".to_i } %>
     <% end %>
   <% end %>
 

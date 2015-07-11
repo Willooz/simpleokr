@@ -1,22 +1,21 @@
 header {
-  // width: 100%;
-  // height: 80px;
+  width: 100%;
+  height: 64*$px;
   background-color: $blue;
+  a { color: white }
+  a:hover { color: aliceblue }
 }
 
-.header {
-  width: 900px;
-  margin: 0px auto;
-  padding: 20px;
-  a {
-    color: white;
-  }
+h1.logo {
+  margin: 20*$px 0*$px;
+  font-size: 24*$px;
+  line-height: 1;
 }
-
-h1.logo { font-size: 24px }
 
 .dropdown {
-  padding: 22px;
+  margin: 20*$px 0*$px;
+  padding: 0px;
+  line-height: 24*$px;
 }
 
 .dropdown-menu {

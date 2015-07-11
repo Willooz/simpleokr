@@ -13,10 +13,10 @@
 
 <%= render "shared/header" %>
 
-<div class="page-wrapper">
-  <%= render "shared/flashes" %>
+<main class="page-centered">
   <%= yield %>
-</div>
+</main>
+
 <%= render "shared/footer" %>
 
 <%= yield :copy_to_clipboard %>

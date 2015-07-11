@@ -1,4 +1,4 @@
-<div class="flashes">
+<section class="flashes">
   <% if notice %>
     <div class="alert alert-success alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -8,7 +8,7 @@
   <% if alert %>
     <div class="alert alert-danger alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= alert %>
+      Oops! <%= alert %>
     </div>
   <% end %>
-</div>
+</section>

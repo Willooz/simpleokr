@@ -2,17 +2,17 @@ $(document).ready(function() {
 
   var data = []
 
-  d3.selectAll(".score input")
+  var scoreBox = d3.selectAll(".score")
     .each(function() {
-      var input = d3.select(this).attr("value");
-      data.push(input);
+      var score = d3.select(this).attr("data-score");
+      data.push(score);
     });
 
   // console.log(data);
 
   var width = 135,
       height = 30,
-      radius = 10,
+      radius = 5,
       sliderHeight = 4,
       sliderRadius = sliderHeight / 2;
 
@@ -26,7 +26,8 @@ $(document).ready(function() {
       .range([0, 125])
       .clamp(true);
 
-  var svg = d3.selectAll(".canvas")
+  scoreBox.append("svg")
+      .attr("class", "canvas")
       .attr("width", 200)
       .attr("height", height)
       .append("g");
@@ -55,40 +56,12 @@ $(document).ready(function() {
   slider.append("text")
       .attr("x", -50)
       .attr("y", 17)
-
       .text(function(d) { return d3.round(d, 1) });
 
   var handle = slider.append("circle")
       .attr("r", radius)
       .attr("cx", function(d) { return x(d) } )
-      .attr("cy", 11 );
-
-  var brush = d3.svg.brush()
-    .x(x)
-    .extent([0, 1])
-    .on("brush", brushed);
-
-  handle
-      .call(brush);
-
-  function brushed() {
-    var sliderPosition = x.invert(d3.mouse(this)[0]);
-    var sliderColor = hue(sliderPosition);
-    brush.extent([sliderPosition, sliderPosition]);
-
-    d3.select(this)
-      .attr("cx", x(sliderPosition));
-
-    d3.select(this.parentNode).select("#colored")
-      .attr("width", x(sliderPosition))
-      .attr("fill", d3.hsl(sliderColor, .8, .8));
-
-    d3.select(this.parentNode).select("text")
-      .text(d3.round(sliderPosition, 1));
-
-    // PUT CHANGED DATA BACK INTO THE INPUT
-    console.log(data);
-
-  }
+      .attr("cy", 12 )
+      .attr("fill", function(d) { return d3.hsl(hue(d), .8, .8) } );
 
 });

@@ -6,12 +6,7 @@ footer {
   // margin-top: 100px;
   padding-top: 50px;
   padding-bottom: 80px;
-  background: linear-gradient(#FFFFFF, #EFF7FF);
-}
-
-.footer {
-  max-width: 900px;
-  margin: 0px auto;
+  background: linear-gradient(to bottom, #FFFFFF, #C6EAFF);
   font-size: 12px;
   ul {
     list-style-type: none;
@@ -37,3 +32,5 @@ footer {
     border: none
   }
 }
+
+h5.footer-title {}

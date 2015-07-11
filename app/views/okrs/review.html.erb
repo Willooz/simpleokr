@@ -1,15 +1,22 @@
 <%= render 'view_header' %>
 
-<section id="okr">
-  <%= form_for @okr do |form| %>
-    <div class="container-fluid">
+<%= render partial: 'shared/flashes' %>
 
-      <% @okr.objectives.each_with_index do |objective, index| %>
-        <%= form.fields_for :objectives, objective do |o_form| %>
-          <%= render partial: "o_review", locals: { form: o_form, objective: objective, index: index } %>
+<%= form_for @okr do |form| %>
+
+  <section class="okr">
+      <div class="container-fluid">
+        <% @okr.objectives.each_with_index do |objective, index| %>
+          <%= form.fields_for :objectives, objective do |o_form| %>
+            <%= render partial: "o_review", locals: { form: o_form, objective: objective, index: index } %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+  </section>
 
-    </div>
-  <% end %>
-</section>
+  <section class="action">
+    <%= link_to "Cancel", show_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
+    <%= form.submit "Submit Review", class: "btn btn-lg btn-primary" %>
+  </section>
+
+<% end %>
