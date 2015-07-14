@@ -5,5 +5,5 @@ class Objective < ActiveRecord::Base
   accepts_nested_attributes_for :key_results
 
   validates :description, presence: true, length: { maximum: 255,
-    too_long: "You should write objectives in less than %{count} characters" }
+    too_long: "Try to keep objectives shorter than %{count} characters." }
 end

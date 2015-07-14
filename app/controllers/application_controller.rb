@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def meta_events_tracker
-    @meta_events_tracker ||= MetaEvents::Tracker.new(current_user.try(:id), request.remote_ip)
+    @meta_events_tracker ||= MetaEvents::Tracker.new(nil, request.remote_ip)
   end
 
 end

@@ -20,4 +20,33 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      okr: "OKR"
+      objective:
+        one: "The objective"
+        other: "Objectives"
+      key_result:
+        one: "The key result"
+        other: "Key results"
+    attributes:
+      okr:
+        admin_name: "Your name"
+        admin_email: "Your e-mail"
+        admin_url: "Admin url"
+        public_url: "Public url"
+        owner: "Your team"
+        year: "The year"
+        quarter: "The quarter"
+      okr/objective:
+        description: "Yola"
+      okr/objective/key_result:
+        description: "Yolo"
+    errors:
+      models:
+        okr:
+          blank: "is required."
+        objective:
+          blank: "cannot be blank. Please fill or remove."
+        key_result:
+          blank: "cannot be blank. Please fill or remove."
