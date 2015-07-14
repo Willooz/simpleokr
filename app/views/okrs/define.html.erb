@@ -1,13 +1,13 @@
-<%= render 'steps_header' %>
+<%= render 'define_header' %>
 
-<%= form_for @okr, html: { class: "form-horizontal" } do |form| %>
+<%= form_for @okr do |form| %>
 
   <% if @okr.errors.any? %>
     <%= render partial: 'shared/flashes', locals: { alert: @okr.errors.full_messages.first } %>
   <% end %>
 
   <section class="okr">
-    <h3 class="headline">Write your Objectives and associated Key Results</h3>
+    <!-- <h3 class="headline">Write your Objectives and associated Key Results</h3> -->
 
     <%= form.hidden_field :owner %>
     <%= form.hidden_field :year %>
@@ -21,8 +21,8 @@
     <% end %>
 
     <div class="row-group">
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-8">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <div class="pull-right">
             <% if @okr.objectives.size > 1 %>
               <%= button_tag(value: "remove_o", class: "btn btn-default btn-xs") do %>

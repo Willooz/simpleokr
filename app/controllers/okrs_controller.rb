@@ -8,6 +8,7 @@ class OkrsController < ApplicationController
 
   def new
     @okr = Okr.new
+    meta_events_tracker.event!(:user, :start, {})
   end
 
   def define
@@ -16,6 +17,7 @@ class OkrsController < ApplicationController
     okr_attributes[:quarter] = okr_attributes[:quarter][/\d/].to_i
     @okr = Okr.new(okr_attributes)
     if @okr.valid?
+      meta_events_tracker.event!(:user, :registration, { user_name: okr_attributes[:admin_name], user_email: okr_attributes[:admin_email] })
       objective = @okr.objectives.build()
       objective.key_results.build()
       render 'define'
@@ -58,13 +60,17 @@ class OkrsController < ApplicationController
         @okr.public_url = SecureRandom.hex(5)
         @okr.admin_url = SecureRandom.hex(8)
         @okr.save
+        count = { ob: 0, kr: 0 }
         @okr.objectives.each do |o|
+          count[:ob] += 1
           o.key_results.each do |kr|
+            count[:kr] += 1
             kr.save
           end
           o.save
         end
-        redirect_to share_okr_path(@okr.admin_url), notice: "OKR successfully created"
+        meta_events_tracker.event!(:user, :creation, { link: @okr.admin_url, objectives: count[:ob], kr: count[:kr] })
+        redirect_to share_okr_path(@okr.admin_url), notice: "Congratulations on creating you OKR!"
       else
         render 'define', alert: "OKR format invalid. Check highlighted fields."
       end
@@ -72,8 +78,8 @@ class OkrsController < ApplicationController
   end
 
   def share
-    @public_url = "http://www.simpleokr.com/#{@okr.public_url}"
-    @admin_url = "http://www.simpleokr.com/#{@okr.admin_url}"
+    @public_url = "http://simpleokr.net/#{@okr.public_url}"
+    @admin_url = "http://simpleokr.net/#{@okr.admin_url}"
   end
 
   def edit

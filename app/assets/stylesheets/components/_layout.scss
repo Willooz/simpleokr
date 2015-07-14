@@ -9,7 +9,7 @@ p, blockquote, ol, ul, figure {
 
 // Style page base
 body {
-  // height: 100%;
+  height: 100%;
   font-family: $font-family;
   font-weight: 200;
   font-size: $text-font-size;
@@ -54,7 +54,9 @@ section {
 }
 
 // Centered content with white background
-main {}
+main {
+  min-height: 100%;
+}
 
 // Content titles with black text and blue action buttons
 nav {

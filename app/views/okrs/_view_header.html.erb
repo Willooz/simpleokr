@@ -15,7 +15,9 @@
   <ul class="scope list-inline">
     <li><h2 class="subtitle"><i class="fa fa-users"></i> <%= @okr.owner %></h2></li>
     <li><h2 class="subtitle"><i class="fa fa-calendar"></i> Q<%= @okr.quarter %> <%= @okr.year %></h2></li>
-    <li><h2 class="subtitle"><i class="fa fa-link"></i> <%= "/#{@okr.public_url}" %></h2></li>
+    <% if @okr.public_url != nil %>
+      <li><h2 class="subtitle"><a class="light" href="http://simpleokr.net/#{@okr.public_url}"><i class="fa fa-link"></i> <%= "/#{@okr.public_url}" %></a></h2></li>
+    <% end %>
   </ul>
 
   <div class="clearfix"></div>

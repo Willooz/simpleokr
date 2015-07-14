@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>objectivity</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="objectivity" sketch:type="MSLayerGroup">
+            <circle id="bg-copy-2" fill="#F5F5F5" sketch:type="MSShapeGroup" cx="50" cy="50" r="50"></circle>
+            <rect id="ray" fill="#DCDCDC" sketch:type="MSShapeGroup" x="22" y="48" width="30" height="5" rx="2"></rect>
+            <rect id="ray-copy-6" fill="#DCDCDC" sketch:type="MSShapeGroup" x="32" y="60" width="20" height="2" rx="2"></rect>
+            <rect id="ray-copy-7" fill="#DCDCDC" sketch:type="MSShapeGroup" x="32" y="69" width="20" height="2" rx="2"></rect>
+            <rect id="ray-copy-15" fill="#DCDCDC" sketch:type="MSShapeGroup" x="32" y="78" width="20" height="2" rx="2"></rect>
+            <rect id="ray-copy-18" fill="#DCDCDC" sketch:type="MSShapeGroup" x="32" y="21" width="20" height="2" rx="2"></rect>
+            <rect id="ray-copy-17" fill="#DCDCDC" sketch:type="MSShapeGroup" x="32" y="30" width="20" height="2" rx="2"></rect>
+            <rect id="ray-copy-16" fill="#DCDCDC" sketch:type="MSShapeGroup" x="32" y="39" width="20" height="2" rx="2"></rect>
+            <rect id="ray-copy-19" fill="#DCDCDC" sketch:type="MSShapeGroup" x="66" y="35" width="10" height="2" rx="2"></rect>
+            <rect id="ray-copy-21" fill="#DCDCDC" sketch:type="MSShapeGroup" transform="translate(71.000000, 36.000000) rotate(-90.000000) translate(-71.000000, -36.000000) " x="66" y="35" width="10" height="2" rx="2"></rect>
+            <rect id="ray-copy-20" fill="#DCDCDC" sketch:type="MSShapeGroup" x="66" y="64" width="10" height="2" rx="2"></rect>
+        </g>
+    </g>
+</svg>

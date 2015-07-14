@@ -7,7 +7,10 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="clarity" sketch:type="MSLayerGroup">
             <circle id="bg" fill="#F5F5F5" sketch:type="MSShapeGroup" cx="50" cy="50" r="50"></circle>
-            <rect id="ray" fill="#DCDCDC" sketch:type="MSShapeGroup" x="20" y="48" width="60" height="5" rx="8"></rect>
+            <circle id="target" stroke="#DCDCDC" stroke-width="4" sketch:type="MSShapeGroup" cx="50" cy="50" r="27"></circle>
+            <circle id="target-copy-2" stroke="#DCDCDC" stroke-width="4" sketch:type="MSShapeGroup" cx="50" cy="50" r="17"></circle>
+            <circle id="target-copy-3" stroke="#DCDCDC" stroke-width="4" sketch:type="MSShapeGroup" cx="50" cy="50" r="37"></circle>
+            <circle id="target-copy" fill="#DCDCDC" sketch:type="MSShapeGroup" cx="50" cy="50" r="4"></circle>
         </g>
     </g>
 </svg>

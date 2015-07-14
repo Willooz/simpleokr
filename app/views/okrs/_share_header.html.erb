@@ -1,0 +1,20 @@
+<nav>
+
+  <h1 class="title">Share your objectives</h1>
+
+  <ul class="buttons list-inline">
+    <li><%= link_to "Edit", edit_okr_path(@okr.admin_url), class: "btn btn-default" %></li>
+    <li><%= link_to "View OKR", show_okr_path(@okr.admin_url), class: "btn btn-primary" %></li>
+  </ul>
+
+<!--   <div class="clearfix"></div> -->
+
+  <ul class="scope list-inline">
+    <li><h2 class="subtitle"><i class="fa fa-link"></i> Manage and share your objectives with these links</h2></li>
+  </ul>
+
+<!-- Previous / Next buttons at top of page too? -->
+
+  <div class="clearfix"></div>
+
+</nav>

@@ -1,4 +1,4 @@
-<%= render 'steps_header' %>
+<%= render 'scope_header' %>
 
 <%= form_for @okr, url: { action: 'define' } do |form| %>
 
@@ -8,7 +8,7 @@
 
   <section class="okr">
 
-    <h3 class="headline">Set the scope of your new OKRs</h3>
+    <!-- <h3 class="headline">Set the scope of your new OKRs</h3> -->
 
     <div class="row-group">
       <div class="row">
@@ -18,7 +18,7 @@
         <div class="col-xs-10 col-sm-8">
           <%= form.text_field :owner, class: "form-control" %>
         </div>
-        <%= render partial: 'helper', locals: { text: "The responsible for the objectives. You? Your team? Your organisation?" } %>
+        <%= render partial: 'helper', locals: { text: "Enter who will be working on the objectives. Will it be you, your team, your organisation ?" } %>
       </div>
 
       <div class="row">
@@ -33,7 +33,7 @@
         </div>
         <div class="col-sm-4">
         </div>
-        <%= render partial: 'helper', locals: { text: "Select the quarter you will be working towards the objectives." } %>
+        <%= render partial: 'helper', locals: { text: "Select the quarterly period you will be working one the objectives." } %>
       </div>
     </div>
 
@@ -54,7 +54,7 @@
         <div class="col-xs-10 col-sm-8">
           <%= form.text_field :admin_email, class: "form-control" %>
         </div>
-        <%= render partial: 'helper', locals: { text: "Enter your personal name and e-mail to receive the admin link once you've finished setting your quarterly OKRs" } %>
+        <%= render partial: 'helper', locals: { text: "Enter your name and e-mail to receive the administrator link to your objectives" } %>
       </div>
     </div>
   </section>

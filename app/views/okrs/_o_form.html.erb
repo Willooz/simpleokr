@@ -1,21 +1,21 @@
 <div class="row-group">
-  <!-- <div class="row"> -->
-    <div class="form-group">
-      <%= form.label :description, "Objective:", class: "col-sm-2 control-label" %>
-      <div class="col-sm-8">
-        <%= form.text_field :description, class: "form-control" %>
-      </div>
-      <%= render partial: 'helper', locals: { text: "Write 3 to 4 objectives for a quarter." } %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= form.label :description, "Objective ##{index + 1}:", class: "control-label" %>
     </div>
-  <!-- </div> -->
+    <div class="col-xs-12 col-sm-8">
+      <%= form.text_field :description, class: "form-control" %>
+    </div>
+    <%= render partial: 'helper', locals: { text: "Write 3 to 4 objectives for a quarter." } %>
+  </div>
 
   <%= form.fields_for :key_results do |kr_form| %>
     <%= render partial: "kr_form", locals: { form: kr_form } %>
   <% end %>
 
-  <!-- <div class="row"> -->
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-8">
+  <div class="row-group">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 ">
         <div class="pull-right">
           <% if objective.key_results.size > 1 %>
             <%= button_tag(value: "remove_kr_#{index}", data: { objective: index }, class: "btn btn-default btn-xs") do %>
@@ -28,5 +28,5 @@
         </div>
       </div>
     </div>
-  <!-- </div> -->
+  </div>
 </div>

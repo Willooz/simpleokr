@@ -1,11 +1,9 @@
-<!-- <div class="row"> -->
-  <div class="form-group">
-    <%= form.label :description, "Key Result:", class: "col-sm-2 control-label" %>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-7">
-      <%= form.text_area :description, rows: 2, class: "form-control" %>
-    </div>
-    <%= render partial: 'helper', locals: { text: "Write 3 to 4 key results per objective. Include a clear metric." } %>
+<div class="row">
+  <div class="col-xs-12 col-sm-2">
+    <%= form.label :description, "Key result:", class: "control-label" %>
   </div>
-<!-- </div> -->
-
+  <div class="col-xs-12 col-sm-7 col-sm-offset-1">
+    <%= form.text_area :description, rows: 2, class: "form-control" %>
+  </div>
+  <%= render partial: 'helper', locals: { text: "Write 3 to 4 key results per objective. Include a clear metric." } %>
+</div>
