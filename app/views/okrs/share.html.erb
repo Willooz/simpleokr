@@ -57,10 +57,10 @@
         <div class="col-xs-12">
           <ul class="list-inline">
             <li>
-              <a class="btn btn-lg btn-primary light" href="https://twitter.com/intent/tweet?text=Objectives%20set%20for%20the%20quarter!%20simpleokr.net/xyz%20via%20@SimpleOKR"><i class="fa fa-twitter"></i> Tweet</a>
+              <a class="btn btn-lg btn-primary light" href=<%= "https://twitter.com/intent/tweet?text=Objectives%20set%20for%20the%20quarter!%20simpleokr.net/#{@okr.public_url}%20via%20simpleOKR.net" %>><i class="fa fa-twitter"></i> Tweet</a>
             </li>
             <li>
-              <a class="btn btn-lg btn-primary light" href="http://www.linkedin.com/shareArticle?mini=true&url=simpleokr.net/xyz&title=Quarterly%20objectives%20set!&summary=My%20objectives...&source=Simple%20OKR"><i class="fa fa-linkedin-square"></i> Post</a>
+              <a class="btn btn-lg btn-primary light" href=<%= "http://www.linkedin.com/shareArticle?mini=true&url=simpleokr.net/#{@okr.public_url}&title=Quarterly%20objectives%20set!&summary=My%20objectives...&source=Simple%20OKR" %>><i class="fa fa-linkedin-square"></i> Post</a>
             </li>
           </ul>
         </div>
@@ -80,4 +80,8 @@
       var admin_clip = new ZeroClipboard($("#admin_clip_button"))
     });
   </script>
+<% end %>
+
+<% content_for :twitter_intents do %>
+  <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
 <% end %>

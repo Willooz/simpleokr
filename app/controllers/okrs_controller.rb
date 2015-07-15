@@ -1,6 +1,6 @@
 class OkrsController < ApplicationController
   before_action :find_by_url, only: [:show, :share, :edit, :review]
-  before_action :find_by_id, only: [:update, :finalize, :delete]
+  before_action :find_by_id, only: [:update, :finalize, :destroy]
 
   def show
     @admin_access = admin_access
@@ -70,6 +70,7 @@ class OkrsController < ApplicationController
           o.save
         end
         meta_events_tracker.event!(:user, :creation, { link: @okr.admin_url, objectives: count[:ob], kr: count[:kr] })
+        UserMailer.welcome(@okr).deliver_now
         redirect_to share_okr_path(@okr.admin_url), notice: "Congratulations on creating you OKR!"
       else
         render 'define', alert: "OKR format invalid. Check highlighted fields."
@@ -110,6 +111,8 @@ class OkrsController < ApplicationController
   end
 
   def destroy
+    @okr.delete
+    redirect_to root_path, notice: "Your OKR was deleted!"
   end
 
   private
