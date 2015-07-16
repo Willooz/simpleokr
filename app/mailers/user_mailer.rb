@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
     @okr = okr
     mail(
       to: @okr.admin_email,
-      subject: "Welcome to Simple OKR #{@okr.admin_name}!"
+      subject: "Congratulations on creating your first OKR #{@okr.admin_name}!"
       )
   end
 
