@@ -2,44 +2,43 @@
 
   <h1 class="title">Objectives and Key Results</h1>
 
-  <% if @admin_access %>
-    <ul class="buttons list-inline">
-      <li><%= link_to "Share", share_okr_path(@okr.admin_url), class: "btn btn-default" %></li>
-      <li><%= link_to "Edit", edit_okr_path(@okr.admin_url), class: "btn btn-default" %></li>
-      <% unless @okr.reviewed? %>
-        <li><%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-primary" %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
   <ul class="scope list-inline">
     <li><h2 class="subtitle"><i class="fa fa-users"></i> <%= @okr.owner %></h2></li>
     <li><h2 class="subtitle"><i class="fa fa-calendar"></i> Q<%= @okr.quarter %> <%= @okr.year %></h2></li>
     <% if @okr.public_url != nil %>
-      <li><h2 class="subtitle"><a class="light" href="http://simpleokr.net/#{@okr.public_url}"><i class="fa fa-link"></i> <%= "/#{@okr.public_url}" %></a></h2></li>
+      <li><h2 class="subtitle"><a class="light" href=<%= "http://simpleokr.net/#{@okr.public_url}" %>><i class="fa fa-link"></i> <%= "/#{@okr.public_url}" %></a></h2></li>
     <% end %>
   </ul>
 
-  <div class="clearfix"></div>
+<% if @admin_access %>
 
-</nav>
-
-<nav>
-
-  <div>
+  <div class="menu">
     <!-- Nav tabs -->
-    <ul role="tablist">
-      <li role="presentation"><a href="#share" aria-controls="share" role="tab" data-toggle="tab">Share</a></li>
-      <li role="presentation"><a href="review" aria-controls="review" role="tab" >Review</a></li>
-      <li role="presentation"><a href="#manage" aria-controls="manage" role="tab" data-toggle="tab">Manage</a></li>
+    <ul class="buttons list-inline">
+      <li>
+        <%= link_to "Share", "#share", class: "btn btn-primary", data: { toggle: "menu" } %>
+      </li>
+      <% if @okr.reviewed? %>
+        <li><%= link_to "Review", "#", class: "btn btn-default" %></li>
+      <% else %>
+        <li><%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-primary" %></li>
+      <% end %>
+      <li>
+        <%= link_to "Manage", "#manage", class: "btn btn-default", data: { toggle: "menu" } %></li>
+      </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="share">Yolo</div>
-      <div role="tabpanel" class="tab-pane" id="manage">Yola</div>
+      <div class="tab-pane" id="share">
+        <%= render partial: 'share_menu', locals: { okr: @okr } %>
+      </div>
+      <div class="tab-pane" id="manage">
+        <%= render partial: 'manage_menu', locals: { okr: @okr } %>
+      </div>
     </div>
   </div>
 
+<% end %>
 
 </nav>

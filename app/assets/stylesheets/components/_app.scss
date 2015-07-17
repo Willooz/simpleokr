@@ -16,7 +16,6 @@
 
 h1.title {
   display: block;
-  float: left;
   margin: 0px;
   padding: 0px;
   padding-bottom: 1.2rem;
@@ -24,31 +23,15 @@ h1.title {
   text-align: left;
 }
 
-// NAV Buttons (if admin URL)
-
-ul.buttons {
-  display: block;
-  float: right;
-  margin: 0px;
-  padding: 0px;
-  padding-top: 0.4rem;
-  li {
-    &:not(:first-child) {
-      margin-left: 0.05rem;
-    }
-  }
-}
-
 // NAV Subtitle
 
 ul.scope {
   display: block;
-  float: left;
   margin: 0px;
   padding: 0px;
   li {
     &:not(:first-child) {
-      margin-left: 1rem;
+      margin-left: 1.5rem;
     }
   }
 }
@@ -67,6 +50,29 @@ h2.subtitle {
   color: $black;
   font-size: 21px;
   font-weight: 200;
+}
+
+// NAV MENU Buttons (if admin URL)
+
+div.menu {
+  padding-top: $vertical-spacing;
+}
+
+ul.buttons {
+  display: block;
+  // float: right;
+  margin: 0px;
+  padding: 0px;
+  // padding-top: 0.4rem;
+  li {
+    &:not(:first-child) {
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+div.tab-pane {
+  padding-top: $vertical-spacing;
 }
 
 // SECTION Flashes
