@@ -53,24 +53,18 @@ $dark-gray:  #4A4A4A;
 // ---------------------------
 
 
-// The size of 1rem in pixels
-$baseSize: 18px;
-// The size of a pixel in rems
-$px: 1 / ($baseSize / 1px) + 0rem;
-
-html {
-  font-size: $baseSize;
-}
-
-
 /* Extra small devices (phones, less than 768px) */
-
+  html { font-size: 16px }
+  $px: 1/16 + 0rem;
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) { }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: $screen-md-min) { }
+@media (min-width: $screen-md-min) {
+  html { font-size: 18px }
+  $px: 1/18 + 0rem;
+}
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: $screen-lg-min) { }
