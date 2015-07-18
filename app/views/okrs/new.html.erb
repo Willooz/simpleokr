@@ -16,7 +16,7 @@
           <%= form.label :owner, "Team:", class: "control-label" %>
         </div>
         <div class="col-xs-10 col-sm-8">
-          <%= form.text_field :owner, class: "form-control" %>
+          <%= form.text_field :owner, class: "form-control input-lg" %>
         </div>
         <%= render partial: 'helper', locals: { text: "Enter who will be working on the objectives. Will it be you, your team, your organisation ?" } %>
       </div>
@@ -26,7 +26,7 @@
           <%= form.label :quarter, "Period:", class: "control-label" %>
         </div>
         <div class="col-xs-5 col-sm-2">
-          <%= form.select :quarter, options_for_select(["Q1", "Q2", "Q3", "Q4"], "Q3"), {}, {class: "form-control"} %>
+          <%= form.select :quarter, options_for_select(["Q1", "Q2", "Q3", "Q4"], "Q3"), {}, {class: "form-control input-lg"} %>
         </div>
         <div class="col-xs-5 col-sm-2">
           <%= form.select :year, options_for_select([2014, 2015, 2016], 2015), {}, {class: "form-control"} %>
@@ -43,7 +43,7 @@
           <%= form.label :admin_name, "Your name:", class: "control-label" %>
         </div>
         <div class="col-xs-10 col-sm-8">
-          <%= form.text_field :admin_name, class: "form-control" %>
+          <%= form.text_field :admin_name, class: "form-control input-lg" %>
         </div>
       </div>
 
@@ -52,7 +52,7 @@
           <%= form.label :admin_email, "Your e-mail:", class: "control-label" %>
         </div>
         <div class="col-xs-10 col-sm-8">
-          <%= form.text_field :admin_email, class: "form-control" %>
+          <%= form.text_field :admin_email, class: "form-control input-lg" %>
         </div>
         <%= render partial: 'helper', locals: { text: "Enter your name and e-mail to receive the administrator link to your objectives" } %>
       </div>

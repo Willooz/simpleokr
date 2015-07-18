@@ -19,21 +19,28 @@
         <%= link_to "Share", "#share", class: "btn btn-primary", data: { toggle: "menu" } %>
       </li>
       <% if @okr.reviewed? %>
-        <li><%= link_to "Review", "#", class: "btn btn-default" %></li>
+        <li>
+          <%= link_to "#", class: "btn btn-default" do %>
+            Reviewed <i class="fa fa-check-square-o"></i>
+          <% end %>
+        </li>
       <% else %>
-        <li><%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-primary" %></li>
+        <li>
+          <%= link_to "Review", review_okr_path(@okr.admin_url), class: "btn btn-primary" %>
+        </li>
       <% end %>
       <li>
-        <%= link_to "Manage", "#manage", class: "btn btn-default", data: { toggle: "menu" } %></li>
+        <%= link_to "Manage", "#manage", class: "btn btn-default", data: { toggle: "menu" } %>
+      </li>
       </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div class="tab-pane" id="share">
+      <div class="tab-pane mini" id="share">
         <%= render partial: 'share_menu', locals: { okr: @okr } %>
       </div>
-      <div class="tab-pane" id="manage">
+      <div class="tab-pane mini" id="manage">
         <%= render partial: 'manage_menu', locals: { okr: @okr } %>
       </div>
     </div>
@@ -42,3 +49,12 @@
 <% end %>
 
 </nav>
+
+<% content_for :copy_to_clipboard do %>
+  <script>
+    $(document).ready(function() {
+      var public_clip = new ZeroClipboard($("#public_clip_button"))
+      var admin_clip = new ZeroClipboard($("#admin_clip_button"))
+    });
+  </script>
+<% end %>

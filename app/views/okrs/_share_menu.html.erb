@@ -1,42 +1,46 @@
 <div class="container-fluid">
 <div class="row">
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-xs-12 col-sm-3">
     <ul class="list-inline">
       <li>
-        <a class="btn btn-primary light" href=<%= "https://twitter.com/intent/tweet?text=Objectives%20set%20for%20the%20quarter!%20simpleokr.net/#{okr.public_url}%20via%20simpleOKR.net" %>><i class="fa fa-twitter"></i> Tweet</a>
+        <a class="btn btn-primary btn-sm light" href=<%= "https://twitter.com/intent/tweet?text=Objectives%20set%20for%20the%20quarter!%20simpleokr.net/#{okr.public_url}%20via%20simpleOKR.net" %>><i class="fa fa-twitter"></i> Tweet</a>
       </li>
       <li>
-        <a class="btn btn-primary light" href=<%= "http://www.linkedin.com/shareArticle?mini=true&url=simpleokr.net/#{okr.public_url}&title=Quarterly%20objectives%20set!&summary=My%20objectives...&source=Simple%20OKR" %>><i class="fa fa-linkedin-square"></i> Post</a>
+        <a class="btn btn-primary btn-sm light" href=<%= "http://www.linkedin.com/shareArticle?mini=true&url=simpleokr.net/#{okr.public_url}&title=Quarterly%20objectives%20set!&summary=My%20objectives...&source=Simple%20OKR" %>><i class="fa fa-linkedin-square"></i> Post</a>
       </li>
     </ul>
   </div>
-  <div class="col-xs-12 col-sm-8">
-    <p>Tweet or Post your objectives on LinkedIn!</p>
+  <div class="col-xs-12 col-sm-9">
+    <p>Share your objectives on social media.</p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-xs-12 col-sm-3">
     <ul class="list-inline">
       <li>
-        <a class="btn btn-primary light" href=<%= "" %>><i class="fa fa-pdf"></i> Export</a>
+        <button id="public_clip_button" class="btn btn-sm btn-primary light my_clip_button" data-clipboard-text=<%= "simpleokr.net/#{okr.public_url}"%>>
+          <i class="fa fa-clipboard"></i> Copy link
+        </button>
       </li>
     </ul>
   </div>
-  <div class="col-xs-12 col-sm-8">
-    <p>Save your objectives as a pdf document to better share.</p>
+  <div class="col-xs-12 col-sm-9">
+    <p>Share any other way using your objectives' public link: simpleokr.net/<%= okr.public_url %>.</p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-md-4 input-group">
-    <%= text_field_tag "public-url", okr.public_url, class: "form-control" %>
-    <div id="public_clip_button" class="input-group-addon my_clip_button" data-clipboard-target="public-url">
-      <i class="fa fa-clipboard"></i>
-    </div>
+  <div class="col-xs-12 col-sm-3">
+    <ul class="list-inline">
+      <li>
+        <a class="btn btn-primary btn-sm light" href=<%= "" %>><i class="fa fa-file-text"></i> Export pdf</a>
+      </li>
+    </ul>
   </div>
-  <div class="col-xs-12 col-md-8">
-    <p>Share your objectives by e-mail or any other way using your public link.</p>
+  <div class="col-xs-12 col-sm-9">
+    <p>If you're old school, you can also save your objectives as a pdf! :)</p>
   </div>
 </div>
+
 </div>

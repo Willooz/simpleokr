@@ -74,12 +74,21 @@ $grid-gutter-width: 0px;
 
 // FORMS
 .form-control {
-  height: 40*$px;
-  font-size: 18*$px;
-  letter-spacing: $letter-spacing;
+
   color: $blue;
   border: 1px solid $blue;
   border-radius: 4px;
+}
+
+.input-lg {
+  height: 40*$px;
+  font-size: 18*$px;
+  letter-spacing: $letter-spacing;
+}
+
+.input-sm {
+  // height: 40*$px;
+  letter-spacing: $letter-spacing;
 }
 
 .input-group-addon {

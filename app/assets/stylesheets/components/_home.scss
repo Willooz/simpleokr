@@ -1,10 +1,9 @@
 // HOME/LANDING PAGE
 
 .home {
-  background: -webkit-linear-gradient(#C6EAFF, #FFFFFF);
-  background: -o-linear-gradient(#C6EAFF, #FFFFFF);
-  background: linear-gradient(to bottom, #C6EAFF, $white 300*$px);
-
+  background: -webkit-linear-gradient($gradient-blue, $white);
+  background: -o-linear-gradient($gradient-blue, $white);
+  background: linear-gradient(to bottom, $gradient-blue, $white 300*$px);
 }
 
 // TAGLINE SECTION

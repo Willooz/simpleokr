@@ -71,9 +71,49 @@ ul.buttons {
   }
 }
 
-div.tab-pane {
-  padding-top: $vertical-spacing;
+div.tab-content {
+  // padding-top: $vertical-spacing;
+  // padding-left: 1rem;
+  // padding-right: 1rem;
 }
+
+div.tab-pane {
+  margin-top: $vertical-spacing;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1.5rem 2rem 0.5rem 2rem;
+  background: $white-blue;
+  border-radius: 5px;
+}
+
+.mini {
+  color: $blue;
+  font-size: 0.8rem;
+  p {
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+  .btn-sm {
+    padding: 0.5em 1.2em;
+    line-height: 1.6;
+  }
+  .btn-primary {
+    background: $light-blue;
+    border: $light-blue;
+  }
+  .btn-danger {
+    background: $light-red;
+    border: $light-red;
+  }
+  .input-sm {
+    border: $light-blue;
+  }
+}
+
+.flash {
+  background: $blue;
+}
+
 
 // SECTION Flashes
 

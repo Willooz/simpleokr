@@ -1,32 +1,46 @@
+<div class="container-fluid">
 <div class="row">
-  <div class="col-xs-12">
-    <h3 class="headline">Manage your OKR using this link.</h3><p>It was sent to you by e-mail so you can come back later to edit and review your OKR.</p>
+  <div class="col-xs-12 col-sm-3">
+    <ul class="list-inline">
+      <li>
+        <%= link_to edit_okr_path(@okr.admin_url), class: 'btn btn-sm btn-primary light' do %>
+          <i class="fa fa-pencil-square-o"></i> Edit
+        <% end %>
+      </li>
+    </ul>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-2">
-    <%= label_tag "admin_url", "Admin URL:", class: "control-label" %>
-  </div>
-  <div class="col-xs-8 input-group">
-    <%= text_field_tag "admin-url", @admin_url, class: "form-control" %>
-    <div id="admin_clip_button" class="input-group-addon my_clip_button" data-clipboard-target="admin-url">
-      <i class="fa fa-clipboard"></i>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-xs-12">
-    <h3 class="headline">Share your OKR using this link.</h3><p>This is the public link to your OKR. Use it in emails and documents to point back to your OKR.</p>
+  <div class="col-xs-12 col-sm-9">
+    <p>Modify your objectives and key results.</p>
   </div>
 </div>
 
-
+<div class="row">
+  <div class="col-xs-12 col-sm-3">
+    <ul class="list-inline">
+      <li>
+        <%= link_to okr_path(@okr.id), class: 'btn btn-sm btn-danger light' do %>
+          <i class="fa fa-trash-o"></i> Delete
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-xs-12 col-sm-9">
+    <p>Delete your objectives. Careful! This will destroy all links pointing to your OKR.</p>
+  </div>
+</div>
 
 <div class="row">
-  <div class="col-xs-12">
-    <h3 class="headline">Post to Social Media!</h3>
-    <p>OKR are useful when shared. Keep friends and collegues up to date with your objectives. Take responsibility publicly!</p>
+  <div class="col-xs-12 col-sm-3">
+    <ul class="list-inline">
+      <li>
+        <button id="public_clip_button" class="btn btn-sm btn-primary light my_clip_button" data-clipboard-text=<%= "simpleokr.net/#{okr.admin_url}"%>>
+          <i class="fa fa-clipboard"></i> Copy link
+        </button>
+      </li>
+    </ul>
   </div>
+  <div class="col-xs-12 col-sm-9">
+    <p>Manage your objectives using your admin link: simpleokr.net/<%= okr.admin_url %>.</p>
+  </div>
+</div>
 </div>
