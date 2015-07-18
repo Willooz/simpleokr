@@ -78,9 +78,10 @@ div.tab-content {
 }
 
 div.tab-pane {
+  position: relative;
   margin-top: $vertical-spacing;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  // margin-left: 1rem;
+  // margin-right: 1rem;
   padding: 1.5rem 2rem 0.5rem 2rem;
   background: $white-blue;
   border-radius: 5px;
@@ -93,21 +94,21 @@ div.tab-pane {
     line-height: 2;
     margin-bottom: 1rem;
   }
-  .btn-sm {
-    padding: 0.5em 1.2em;
-    line-height: 1.6;
-  }
-  .btn-primary {
-    background: $light-blue;
-    border: $light-blue;
-  }
-  .btn-danger {
-    background: $light-red;
-    border: $light-red;
-  }
   .input-sm {
     border: $light-blue;
   }
+}
+
+.share-triangle {
+  position: absolute;
+  top: -20px;
+  left: 25px;
+}
+
+.manage-triangle {
+  position: absolute;
+  top: -20px;
+  left: 240px;
 }
 
 .flash {

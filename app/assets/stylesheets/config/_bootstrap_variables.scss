@@ -10,23 +10,29 @@
   letter-spacing: 1px;
 }
 
+.btn-sm {
+  padding: 0.5em 1.2em;
+  line-height: 1.6;
+}
+
 .btn-lg {
   margin: 0px 5px;
   padding: 10px 20px;
 }
 
-.btn-default {
+.btn-default, .btn-default:focus, .btn-default:active {
   color: $gray;
+  background-color: $white;
   border-color: $gray;
 }
 
 .btn-default:hover {
   color: darken($gray, 20%);
+  background-color: $white;
   border-color: darken($gray, 20%);
-  // background-color: white;
 }
 
-.btn-primary {
+.btn-primary, .btn-primary:focus, .btn-primary:active {
   font-weight: 600;
   background-color: $blue;
   border-color: $blue;
@@ -36,6 +42,39 @@
   background-color: darken($blue, 10%);
   border-color: darken($blue, 10%);
 }
+
+.btn-info, .btn-info:focus, .btn-info:active {
+  background-color: $light-blue;
+  border: $light-blue;
+}
+
+.btn-info:hover {
+  background-color: darken($light-blue, 10%);
+  border-color: darken($light-blue, 10%);
+}
+
+.btn-success, .btn-success:focus, .btn-success:active {
+  color: $green;
+  background-color: $white;
+  border-color: $green;
+}
+
+.btn-success:hover {
+  color: darken($green, 20%);
+  background-color: $white;
+  border-color: darken($green, 20%);
+}
+
+.btn-danger, .btn-danger:focus, .btn-danger:active {
+  background-color: $light-red;
+  border-color: $light-red;
+}
+
+.btn-danger:hover {
+  background-color: darken($light-red, 10%);
+  border-color: darken($light-red, 10%);
+}
+
 
 // Colors
 $brand-primary: $blue;

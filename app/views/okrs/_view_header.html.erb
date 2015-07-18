@@ -20,7 +20,7 @@
       </li>
       <% if @okr.reviewed? %>
         <li>
-          <%= link_to "#", class: "btn btn-default" do %>
+          <%= link_to "#", class: "btn btn-success disabled" do %>
             Reviewed <i class="fa fa-check-square-o"></i>
           <% end %>
         </li>
@@ -38,9 +38,19 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div class="tab-pane mini" id="share">
+        <div class="share-triangle">
+          <svg width="20" height="20" fill="#EBF5FF">
+            <polygon points="10,5 20,20 0,20"/>
+          </svg>
+        </div>
         <%= render partial: 'share_menu', locals: { okr: @okr } %>
       </div>
       <div class="tab-pane mini" id="manage">
+        <div class="manage-triangle">
+          <svg width="20" height="20" fill="#EBF5FF">
+            <polygon points="10,5 20,20 0,20"/>
+          </svg>
+        </div>
         <%= render partial: 'manage_menu', locals: { okr: @okr } %>
       </div>
     </div>

@@ -1,46 +1,46 @@
 <div class="container-fluid">
 <div class="row">
-  <div class="col-xs-12 col-sm-3">
+  <div class="col-xs-3 col-sm-2">
     <ul class="list-inline">
       <li>
-        <%= link_to edit_okr_path(@okr.admin_url), class: 'btn btn-sm btn-primary light' do %>
+        <%= link_to edit_okr_path(@okr.admin_url), class: 'btn btn-sm btn-info light' do %>
           <i class="fa fa-pencil-square-o"></i> Edit
         <% end %>
       </li>
     </ul>
   </div>
-  <div class="col-xs-12 col-sm-9">
+  <div class="col-xs-9 col-sm-10">
     <p>Modify your objectives and key results.</p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-3">
+  <div class="col-xs-3 col-sm-2">
     <ul class="list-inline">
       <li>
-        <%= link_to okr_path(@okr.id), class: 'btn btn-sm btn-danger light' do %>
+        <%= link_to okr_path(@okr.id), method: :delete, class: 'btn btn-sm btn-danger light' do %>
           <i class="fa fa-trash-o"></i> Delete
         <% end %>
       </li>
     </ul>
   </div>
-  <div class="col-xs-12 col-sm-9">
+  <div class="col-xs-9 col-sm-10">
     <p>Delete your objectives. Careful! This will destroy all links pointing to your OKR.</p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-3">
+  <div class="col-xs-3 col-sm-2">
     <ul class="list-inline">
       <li>
-        <button id="public_clip_button" class="btn btn-sm btn-primary light my_clip_button" data-clipboard-text=<%= "simpleokr.net/#{okr.admin_url}"%>>
+        <button id="admin_clip_button" class="btn btn-sm btn-info light my_clip_button" data-clipboard-text=<%= "simpleokr.net/#{okr.admin_url}"%>>
           <i class="fa fa-clipboard"></i> Copy link
         </button>
       </li>
     </ul>
   </div>
-  <div class="col-xs-12 col-sm-9">
-    <p>Manage your objectives using your admin link: simpleokr.net/<%= okr.admin_url %>.</p>
+  <div class="col-xs-9 col-sm-10">
+    <p>Manage your objectives using your admin link: <span class="normal">simpleokr.net/<%= okr.admin_url %></span>.</p>
   </div>
 </div>
 </div>

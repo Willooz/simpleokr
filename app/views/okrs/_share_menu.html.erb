@@ -1,17 +1,17 @@
 <div class="container-fluid">
 <div class="row">
-  <div class="col-xs-12 col-sm-3">
+  <div class="col-xs-12 col-sm-4 col-md-3">
     <ul class="list-inline">
       <li>
-        <a class="btn btn-primary btn-sm light" href=<%= "https://twitter.com/intent/tweet?text=Objectives%20set%20for%20the%20quarter!%20simpleokr.net/#{okr.public_url}%20via%20simpleOKR.net" %>><i class="fa fa-twitter"></i> Tweet</a>
+        <a class="btn btn-info btn-sm light" href=<%= "https://twitter.com/intent/tweet?text=Objectives%20set%20for%20the%20quarter!%20simpleokr.net/#{okr.public_url}%20via%20simpleOKR.net" %>><i class="fa fa-twitter"></i> Tweet</a>
       </li>
       <li>
-        <a class="btn btn-primary btn-sm light" href=<%= "http://www.linkedin.com/shareArticle?mini=true&url=simpleokr.net/#{okr.public_url}&title=Quarterly%20objectives%20set!&summary=My%20objectives...&source=Simple%20OKR" %>><i class="fa fa-linkedin-square"></i> Post</a>
+        <a class="btn btn-info btn-sm light" href=<%= "http://www.linkedin.com/shareArticle?mini=true&url=simpleokr.net/#{okr.public_url}&title=Quarterly%20objectives%20set!&summary=My%20objectives...&source=Simple%20OKR" %>><i class="fa fa-linkedin-square"></i> Share</a>
       </li>
     </ul>
   </div>
-  <div class="col-xs-12 col-sm-9">
-    <p>Share your objectives on social media.</p>
+  <div class="col-xs-12 col-sm-8 col-md-9">
+    <p>Share your objectives via <span class="normal">Twitter</span> and <span class="normal">LinkedIn</span>.</p>
   </div>
 </div>
 
@@ -19,14 +19,14 @@
   <div class="col-xs-12 col-sm-3">
     <ul class="list-inline">
       <li>
-        <button id="public_clip_button" class="btn btn-sm btn-primary light my_clip_button" data-clipboard-text=<%= "simpleokr.net/#{okr.public_url}"%>>
+        <button id="public_clip_button" class="btn btn-sm btn-info light my_clip_button" data-clipboard-text=<%= "simpleokr.net/#{okr.public_url}"%>>
           <i class="fa fa-clipboard"></i> Copy link
         </button>
       </li>
     </ul>
   </div>
   <div class="col-xs-12 col-sm-9">
-    <p>Share any other way using your objectives' public link: simpleokr.net/<%= okr.public_url %>.</p>
+    <p>Share any other way using your objectives' public link: <span class="normal">simpleokr.net/<%= okr.public_url %></span>.</p>
   </div>
 </div>
 
@@ -34,12 +34,12 @@
   <div class="col-xs-12 col-sm-3">
     <ul class="list-inline">
       <li>
-        <a class="btn btn-primary btn-sm light" href=<%= "" %>><i class="fa fa-file-text"></i> Export pdf</a>
+        <a class="btn btn-info btn-sm light" href=<%= "" %>><i class="fa fa-file-text"></i> Export pdf</a>
       </li>
     </ul>
   </div>
   <div class="col-xs-12 col-sm-9">
-    <p>If you're old school, you can also save your objectives as a pdf! :)</p>
+    <p>You can even save your objectives as a <span class="normal">PDF</span> to share them offline.</p>
   </div>
 </div>
 
