@@ -53,7 +53,7 @@
   border-color: darken($light-blue, 10%);
 }
 
-.btn-success, .btn-success:focus, .btn-success:active {
+.btn-success, .btn-success:focus, .btn-success:active, .btn-success.disabled {
   color: $green;
   background-color: $white;
   border-color: $green;
