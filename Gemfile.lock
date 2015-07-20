@@ -203,6 +203,9 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicode_utils (1.4.0)
+    wicked_pdf (0.11.0)
+      rails
+    wkhtmltopdf-binary (0.9.9.3)
     zeroclipboard-rails (0.1.0)
       railties (>= 3.1)
 
@@ -241,4 +244,6 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier (>= 1.3.0)
+  wicked_pdf
+  wkhtmltopdf-binary
   zeroclipboard-rails (~> 0.1.0)
