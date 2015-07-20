@@ -3,8 +3,14 @@
   <div class="col-xs-3 col-sm-2">
     <ul class="list-inline">
       <li>
-        <%= link_to edit_okr_path(@okr.admin_url), class: 'btn btn-sm btn-info light' do %>
-          <i class="fa fa-pencil-square-o"></i> Edit
+        <% if @okr.reviewed %>
+          <%= link_to review_okr_path(@okr.admin_url), class: 'btn btn-sm btn-info light' do %>
+            <i class="fa fa-pencil-square-o"></i> Edit
+          <% end %>
+        <% else %>
+          <%= link_to edit_okr_path(@okr.admin_url), class: 'btn btn-sm btn-info light' do %>
+            <i class="fa fa-pencil-square-o"></i> Edit
+          <% end %>
         <% end %>
       </li>
     </ul>

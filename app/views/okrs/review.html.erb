@@ -6,7 +6,7 @@
 
   <section class="okr">
       <div class="container-fluid">
-        <% @okr.objectives.each_with_index do |objective, index| %>
+        <% @okr.objectives.order(:id).each_with_index do |objective, index| %>
           <%= form.fields_for :objectives, objective do |o_form| %>
             <%= render partial: "o_review", locals: { form: o_form, objective: objective, index: index } %>
           <% end %>
@@ -16,7 +16,7 @@
 
   <section class="action">
     <%= link_to "Cancel", show_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
-    <%= form.submit "Submit Review", class: "btn btn-lg btn-primary" %>
+    <%= form.submit "Save Review", class: "btn btn-lg btn-primary" %>
   </section>
 
 <% end %>

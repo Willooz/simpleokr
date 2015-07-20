@@ -16,7 +16,7 @@
     <%= form.hidden_field :admin_email %>
     <% @okr.objectives.each_with_index do |objective, index| %>
       <%= form.fields_for :objectives, objective do |o_form| %>
-        <%= render partial: "o_form", locals: { form: o_form, objective: objective, index: index } %>
+        <%= render partial: "o_form", locals: { form: o_form, objective: objective, oid: index, index: index } %>
       <% end %>
     <% end %>
 

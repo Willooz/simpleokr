@@ -1,0 +1,129 @@
+/* -------------------------------------
+ * Bootstrap sass variable
+ * (see http://getbootstrap.com/customize/#less-variables)
+ * ------------------------------------- */
+
+// BUTTONS
+.btn {
+  border-radius: 9999em;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.btn-sm {
+  padding: 0.5em 1.2em;
+  line-height: 1.6;
+}
+
+.btn-lg {
+  margin: 0px 5px;
+  padding: 10px 20px;
+}
+
+.btn-default, .btn-default:focus, .btn-default:active {
+  color: $gray;
+  background-color: $white;
+  border-color: $gray;
+}
+
+.btn-default:hover {
+  color: darken($gray, 20%);
+  background-color: $white;
+  border-color: darken($gray, 20%);
+}
+
+.btn-primary, .btn-primary:focus, .btn-primary:active {
+  font-weight: 600;
+  background-color: $blue;
+  border-color: $blue;
+}
+
+.btn-primary:hover {
+  background-color: darken($blue, 10%);
+  border-color: darken($blue, 10%);
+}
+
+.btn-info, .btn-info:focus, .btn-info:active {
+  background-color: $light-blue;
+  border: $light-blue;
+}
+
+.btn-info:hover {
+  background-color: darken($light-blue, 10%);
+  border-color: darken($light-blue, 10%);
+}
+
+.btn-success, .btn-success:focus, .btn-success:active, .btn-success.disabled {
+  color: $green;
+  background-color: $white;
+  border-color: $green;
+}
+
+.btn-success:hover {
+  color: darken($green, 20%);
+  background-color: $white;
+  border-color: darken($green, 20%);
+}
+
+.btn-danger, .btn-danger:focus, .btn-danger:active {
+  background-color: $light-red;
+  border-color: $light-red;
+}
+
+.btn-danger:hover {
+  background-color: darken($light-red, 10%);
+  border-color: darken($light-red, 10%);
+}
+
+// Colors
+$brand-primary: $blue;
+
+// GRID SYSTEM
+.container-fluid {
+  padding: 0px;
+}
+
+.row {
+  padding-bottom: 0.5rem;
+}
+
+// ALERTS
+.alert {
+  border: none;
+  border-radius: inherit;
+}
+
+.close {
+  line-height: 1.5;
+}
+
+
+// FORMS
+.form-control {
+
+  color: $blue;
+  border: 1px solid $blue;
+  border-radius: 4px;
+}
+
+.input-lg {
+  height: 40*$px;
+  font-size: 18*$px;
+  letter-spacing: $letter-spacing;
+}
+
+.input-sm {
+  // height: 40*$px;
+  letter-spacing: $letter-spacing;
+}
+
+.input-group-addon {
+  border: 1px solid #545454;
+}
+
+// LISTS
+
+.list-inline > li {
+  padding: 0px;
+}
+

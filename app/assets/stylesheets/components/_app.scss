@@ -1,16 +1,16 @@
 // LAYOUT ATTRIBUTES specific to DYNAMIC APP PAGES
 
-#title {
-  img {
-    margin: 10px;
-  }
-  h2 {
-    padding-bottom: 20px;
-  }
-  h4 {
-    display: inline;
-  }
-}
+// #title {
+//   img {
+//     margin: 10px;
+//   }
+//   h2 {
+//     padding-bottom: 20px;
+//   }
+//   h4 {
+//     display: inline;
+//   }
+// }
 
 // NAV Title
 
@@ -30,9 +30,7 @@ ul.scope {
   margin: 0px;
   padding: 0px;
   li {
-    &:not(:first-child) {
-      margin-left: 1.5rem;
-    }
+    margin-right: 1.5rem;
   }
 }
 
@@ -166,6 +164,12 @@ label {
   // font-weight: 200;
   // font-size: 18px;
   // padding-bottom: 20px;
+}
+
+.score {
+  @media (min-width: $screen-sm-min) {
+    text-align: right;
+  }
 }
 
 // SECTION Action buttons

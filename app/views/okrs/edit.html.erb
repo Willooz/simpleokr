@@ -2,21 +2,37 @@
 
 <%= render partial: 'shared/flashes' %>
 
-<%= form_for @okr do |form| %>
+<%= form_for @okr, method: "patch" do |form| %>
 
   <section class="okr">
     <div class="container-fluid">
-      <% @okr.objectives.each_with_index do |objective, index| %>
+      <% @okr.objectives.order(:id).each_with_index do |objective, index| %>
         <%= form.fields_for :objectives, objective do |o_form| %>
-          <%= render partial: "o_review", locals: { form: o_form, objective: objective, index: index } %>
+          <%= render partial: "o_form", locals: { form: o_form, objective: objective, oid: objective.id, index: index } %>
         <% end %>
       <% end %>
+    </div>
+
+    <div class="row-group">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="pull-right">
+            <% if @okr.objectives.size > 1 %>
+              <%= button_tag(value: "remove_o", class: "btn btn-default btn-xs") do %>
+                <i class="fa fa-trash"></i> remove objective
+              <% end %>
+            <% end %>
+            <%= button_tag(value: "add_o", class: "btn btn-default btn-xs") do %>
+              <i class="fa fa-plus-circle"></i> add objective
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="action">
     <%= link_to "Cancel", show_okr_path(@okr.admin_url), class: "btn btn-lg btn-default" %>
-    <%= link_to "Delete", okr_path(@okr.id), confirm: 'Are you sure?', method: :delete, class: "btn btn-lg btn-default"%>
     <%= form.submit "Save", class: "btn btn-lg btn-primary" %>
   </section>
 

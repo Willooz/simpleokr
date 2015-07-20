@@ -28,7 +28,7 @@ class OkrsController < ApplicationController
   end
 
   def create
-    # Generate okr, objectives and kr models from params
+    # Generate okr, objectives and kr instances from params
     @okr = Okr.new(okr_params)
     # IF post request from add/remove buttons...
     if params[:button]
@@ -52,7 +52,6 @@ class OkrsController < ApplicationController
           kr_to_remove = objective_to_change.key_results.last
           objective_to_change.key_results.delete(kr_to_remove)
           render 'define'
-        else
       end
     # IF create button, proceed to save ...
     else
@@ -93,16 +92,44 @@ class OkrsController < ApplicationController
 
   def update
     okr_attributes = okr_params
-    if params[:commit]=="Submit Review"
+    if params[:commit]=="Save Review"
       okr_attributes[:reviewed] = true
-    end
-    if @okr.valid?
-      @okr.update(okr_attributes)
-      redirect_to show_okr_path(@okr.admin_url), notice: "Congratulations on reviewing your OKR!"
+      if @okr.valid?
+        @okr.update(okr_attributes)
+        redirect_to show_okr_path(@okr.admin_url), notice: "Congratulations on reviewing your OKR!"
+      else
+        render 'review', alert: "Oops! We couldn't save your review. Please contact support."
+      end
     else
-      render 'review', alert: "There was a problem with saving your review. Please contact support."
+      if @okr.valid?
+        @okr.update(okr_attributes)
+        if params[:button]
+          case params[:button][/\D*/]
+            when "add_o"
+              objective = @okr.objectives.create(description: "New objective...")
+              objective.key_results.create(description: "New key result...")
+              redirect_to edit_okr_path(@okr.admin_url)
+            when "remove_o"
+              @okr.objectives.last.destroy
+              redirect_to edit_okr_path(@okr.admin_url)
+            when "add_kr_"
+              index = params[:button][/\d*$/].to_i
+              objective_to_change = @okr.objectives.find(index)
+              objective_to_change.key_results.create(description: "New key result...")
+              redirect_to edit_okr_path(@okr.admin_url)
+            when "remove_kr_"
+              index = params[:button][/\d*$/].to_i
+              @okr.objectives.find(index).key_results.last.destroy
+              redirect_to edit_okr_path(@okr.admin_url)
+          end
+        else
+          redirect_to show_okr_path(@okr.admin_url), notice: "Your OKR were updated."
+        end
+      else
+        render 'review', alert: "Oops! We couldn't save your modifications. Please contact support."
+      end
     end
-   end
+  end
 
   def review
   end

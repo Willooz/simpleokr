@@ -18,11 +18,11 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 ">
         <div class="pull-right">
           <% if objective.key_results.size > 1 %>
-            <%= button_tag(value: "remove_kr_#{index}", data: { objective: index }, class: "btn btn-default btn-xs") do %>
+            <%= button_tag(value: "remove_kr_#{oid}", data: { objective: oid }, class: "btn btn-default btn-xs") do %>
               <i class="fa fa-trash"></i> remove key result
             <% end %>
           <% end %>
-          <%= button_tag(value: "add_kr_#{index}", data: { objective: objective.id }, class: "btn btn-default btn-xs") do %>
+          <%= button_tag(value: "add_kr_#{oid}", data: { objective: oid }, class: "btn btn-default btn-xs") do %>
             <i class="fa fa-plus-circle"></i> add key result
           <% end %>
         </div>
