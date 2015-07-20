@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/share/:url', to: 'okrs#share', as: 'share_okr'
   get '/edit/:url', to: 'okrs#edit', as: 'edit_okr'
   get '/review/:url', to: 'okrs#review', as: 'review_okr'
+  get '/export/:url', to: 'okrs#export', as: 'export_okr'
 
   resources :okrs, only: [:new, :create, :update, :destroy]
   post '/define', to: 'okrs#define', as: 'define_okr'

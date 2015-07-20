@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple OKR - Objectives Key Results in seconds</title>
+  <meta charset='utf-8' />
+  <%= wicked_pdf_stylesheet_link_tag 'app', media: 'all' %>
+</head>
+<body>
+
+<main class="page-centered">
+<nav>
+
+  <h1 class="title">Objectives and Key Results</h1>
+
+  <ul class="scope list-inline">
+    <li><h2 class="subtitle"><i class="fa fa-users"></i> <%= @okr.owner %></h2></li>
+    <li><h2 class="subtitle"><i class="fa fa-calendar"></i> Q<%= @okr.quarter %> <%= @okr.year %></h2></li>
+    <% if @okr.public_url != nil %>
+      <li><h2 class="subtitle"><a class="light" href=<%= "http://simpleokr.net/#{@okr.public_url}" %>><i class="fa fa-link"></i> <%= "/#{@okr.public_url}" %></a></h2></li>
+    <% end %>
+  </ul>
+
+</nav>
+
+<section id="okr">
+  <div class="container-fluid">
+
+    <% @okr.objectives.order(:id).each do |objective| %>
+      <div class="row-group">
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-9">
+            <p class="objective"><%= objective.description %></p>
+          </div>
+        </div>
+
+        <% objective.key_results.order(:id).each do |kr| %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-9">
+              <p class="key-result"><%= kr.description %></p>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3">
+              <% if @okr.reviewed %>
+                <div class="score" data-score="<%= kr.score %>">
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</section>
+
+</main>
+
+</body>
+</html>
+

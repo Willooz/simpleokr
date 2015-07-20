@@ -3,10 +3,14 @@
   <div class="col-xs-12 col-sm-4 col-md-3">
     <ul class="list-inline">
       <li>
-        <a class="btn btn-info btn-sm light" href=<%= "https://twitter.com/intent/tweet?text=Objectives%20set%20for%20the%20quarter!%20simpleokr.net/#{okr.public_url}%20via%20simpleOKR.net" %>><i class="fa fa-twitter"></i> Tweet</a>
+        <%= link_to "https://twitter.com/intent/tweet?text=Objectives%20set%20for%20the%20quarter!%20simpleokr.net/#{okr.public_url}%20via%20simpleOKR.net", class: "btn btn-info btn-sm light" do %>
+          <i class="fa fa-twitter"></i> Tweet
+        <% end %>
       </li>
       <li>
-        <a class="btn btn-info btn-sm light" href=<%= "http://www.linkedin.com/shareArticle?mini=true&url=simpleokr.net/#{okr.public_url}&title=Quarterly%20objectives%20set!&summary=My%20objectives...&source=Simple%20OKR" %>><i class="fa fa-linkedin-square"></i> Share</a>
+        <%= link_to "http://www.linkedin.com/shareArticle?mini=true&url=simpleokr.net/#{okr.public_url}&title=Quarterly%20objectives%20set!&summary=My%20objectives...&source=Simple%20OKR", class: "btn btn-info btn-sm light" do %>
+          <i class="fa fa-linkedin-square"></i> Share
+        <% end %>
       </li>
     </ul>
   </div>
@@ -34,7 +38,9 @@
   <div class="col-xs-12 col-sm-4 col-md-3">
     <ul class="list-inline">
       <li>
-        <a class="btn btn-info btn-sm light" href=<%= "" %>><i class="fa fa-file-text"></i> Export pdf</a>
+        <%= link_to export_okr_path(url: @okr.admin_url, format: 'pdf'), target: 'blank', class: "btn btn-info btn-sm light" do %>
+          <i class="fa fa-file-text"></i> Export pdf
+        <% end %>
       </li>
     </ul>
   </div>
