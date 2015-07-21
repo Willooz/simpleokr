@@ -19,9 +19,9 @@ class OkrsController < ApplicationController
     @okr = Okr.new(okr_attributes)
     if @okr.valid?
       track_event(current_user, 'registered')
-      record_user_info(session[:user_id], {
-        '$name' => okr_attributes[:admin_name],
-        '$email' => okr_attributes[:admin_email]
+      record_user_info(current_user, {
+        'Name' => okr_attributes[:admin_name],
+        'Email' => okr_attributes[:admin_email]
         })
       objective = @okr.objectives.build()
       objective.key_results.build()
@@ -74,11 +74,11 @@ class OkrsController < ApplicationController
           o.save
         end
         track_event(current_user, 'created okr')
-        record_user_info(session[:user_id], {
-          '$okr_admin_url' => @okr.admin_url,
-          '$okr_public_url' => @okr.public_url,
-          '$okr_obj_count' => count[:ob],
-          '$okr_kr_count' => count[:kr]
+        record_user_info(current_user, {
+          'OKR Admin URL' => @okr.admin_url,
+          'OKR Public URL' => @okr.public_url,
+          'OKR Objective Count' => count[:ob],
+          'OKR KR Count' => count[:kr]
         })
         UserMailer.welcome(@okr).deliver_now
         redirect_to show_okr_path(@okr.admin_url), notice: "Congratulations on creating you OKR!"
