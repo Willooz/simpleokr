@@ -105,9 +105,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    meta_events (1.2.1)
-      activesupport (>= 3.0, <= 4.99.99)
-      json (~> 1.0)
     method_source (0.8.2)
     mime-types (2.5)
     mini_portile (0.6.2)
@@ -226,7 +223,6 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   letter_opener
-  meta_events
   mixpanel-ruby
   pdfkit
   pg

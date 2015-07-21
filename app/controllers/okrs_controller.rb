@@ -178,8 +178,4 @@ class OkrsController < ApplicationController
       return false
     end
   end
-
-  def meta_events_tracker
-    @meta_events_tracker ||= MetaEvents::Tracker.new(@okr.try(:public_url), request.remote_ip)
-  end
 end
