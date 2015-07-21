@@ -1,18 +1,9 @@
 class OkrsController < ApplicationController
-  before_action :find_by_url, only: [:show, :export, :edit, :review]
+  before_action :find_by_url, only: [:show, :edit, :review]
   before_action :find_by_id, only: [:update, :destroy]
 
   def show
     @admin_access = admin_access
-  end
-
-  def export
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "Simple_OKR_#{@okr.admin_url}_#{Date.today.to_s}"   # Excluding ".pdf" extension.
-      end
-    end
   end
 
   def new
