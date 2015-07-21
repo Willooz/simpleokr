@@ -4,11 +4,12 @@ class OkrsController < ApplicationController
 
   def show
     @admin_access = admin_access
+    track_event(current_user, 'viewed okr')
   end
 
   def new
     @okr = Okr.new
-    meta_events_tracker.event!(:user, :start, {})
+    track_event(current_user, 'started okr')
   end
 
   def define
@@ -17,7 +18,11 @@ class OkrsController < ApplicationController
     okr_attributes[:quarter] = okr_attributes[:quarter][/\d/].to_i
     @okr = Okr.new(okr_attributes)
     if @okr.valid?
-      meta_events_tracker.event!(:user, :registration, { user_name: okr_attributes[:admin_name], user_email: okr_attributes[:admin_email] })
+      track_event(current_user, 'registered')
+      record_user_info(session[:user_id], {
+        '$name' => okr_attributes[:admin_name],
+        '$email' => okr_attributes[:admin_email]
+        })
       objective = @okr.objectives.build()
       objective.key_results.build()
       render 'define'
@@ -68,7 +73,13 @@ class OkrsController < ApplicationController
           end
           o.save
         end
-        meta_events_tracker.event!(:user, :creation, { link: @okr.admin_url, objectives: count[:ob], kr: count[:kr] })
+        track_event(current_user, 'created okr')
+        record_user_info(session[:user_id], {
+          '$okr_admin_url' => @okr.admin_url,
+          '$okr_public_url' => @okr.public_url,
+          '$okr_obj_count' => count[:ob],
+          '$okr_kr_count' => count[:kr]
+        })
         UserMailer.welcome(@okr).deliver_now
         redirect_to show_okr_path(@okr.admin_url), notice: "Congratulations on creating you OKR!"
       else
@@ -90,6 +101,7 @@ class OkrsController < ApplicationController
     if params[:commit]=="Save Review"
       okr_attributes[:reviewed] = true
       if @okr.valid?
+        track_event(current_user, 'reviewed okr')
         @okr.update(okr_attributes)
         redirect_to show_okr_path(@okr.admin_url), notice: "Congratulations on reviewing your OKR!"
       else
