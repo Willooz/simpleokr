@@ -140,7 +140,7 @@ class OkrsController < ApplicationController
 
   def destroy
     @okr.delete
-    redirect_to root_path, notice: "Your OKR was deleted!"
+    redirect_to root_path
   end
 
   private

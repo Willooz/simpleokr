@@ -21,9 +21,9 @@ gem 'simple_form'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
-gem 'wkhtmltopdf-heroku'
+gem 'pdfkit'
+# gem 'wkhtmltopdf-binary'
+# gem 'wkhtmltopdf-heroku'
 gem 'zeroclipboard-rails', '~> 0.1.0'
 
 group :development, :test do
