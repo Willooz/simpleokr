@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-select
 //= require zeroclipboard
 //= require d3
 //= require turbolinks
