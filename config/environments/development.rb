@@ -40,5 +40,5 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  MetaEvents::Tracker.default_event_receivers << MetaEvents::TestReceiver.new
+  MetaEvents::Tracker.default_event_receivers << Mixpanel::Tracker.new(ENV["MIXPANEL_TOKEN"])
 end
